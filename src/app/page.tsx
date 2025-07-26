@@ -1,103 +1,181 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import Head from 'next/head'
+import { useEffect, useState } from "react"
+
+type FastingOption = {
+  label: string
+  hours: number
+  eatingWindow: number
+  desc: string
+}
+
+const options: FastingOption[] = [
+  { label: "16:8", hours: 16, eatingWindow: 8, desc: "16h fast, 8h eating" },
+  { label: "18:6", hours: 18, eatingWindow: 6, desc: "18h fast, 6h eating" },
+  { label: "20:4", hours: 20, eatingWindow: 4, desc: "20h fast, 4h eating" },
+  { label: "OMAD", hours: 23, eatingWindow: 1, desc: "One meal a day" },
+  { label: "24h", hours: 24, eatingWindow: 0, desc: "Full day fast" },
+  { label: "36h", hours: 36, eatingWindow: 0, desc: "Extended fast" },
+]
+
+export default function Page() {
+  const [date, setDate] = useState("")
+  const [time, setTime] = useState("")
+  const [selected, setSelected] = useState<FastingOption>(options[0])
+  const [canEatTime, setCanEatTime] = useState<Date | null>(null)
+  const [now, setNow] = useState(new Date())
+  const [startTime, setStartTime] = useState<Date | null>(null)
+
+  useEffect(() => {
+    const interval = setInterval(() => setNow(new Date()), 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const calculate = () => {
+    if (!date || !time) return
+    const start = new Date(`${date}T${time}`)
+    const end = new Date(start.getTime() + selected.hours * 60 * 60 * 1000)
+    setStartTime(start)
+    setCanEatTime(end)
+  }
+
+  const getTimeParts = (ms: number) => {
+    const totalSec = Math.max(ms / 1000, 0)
+    const h = Math.floor(totalSec / 3600)
+    const m = Math.floor((totalSec % 3600) / 60)
+    const s = Math.floor(totalSec % 60)
+    return { h, m, s }
+  }
+
+  const totalDuration = selected.hours * 60 * 60 * 1000
+  const elapsed = startTime ? now.getTime() - startTime.getTime() : 0
+  const remaining = canEatTime ? canEatTime.getTime() - now.getTime() : 0
+  const progress = Math.min((elapsed / totalDuration) * 100, 100)
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      <Head>
+        <title>FastingTimer - Intermittent Fasting Calculator</title>
+        <meta
+          name="description"
+          content="Calculate your intermittent fasting schedule. Find out when you can eat again with our free fasting timer."
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <meta
+          name="keywords"
+          content="intermittent fasting calculator, fasting timer, 16:8 fasting, OMAD, time-restricted eating"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://fastingclock.com/" />
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <main className="min-h-screen bg-gradient-to-b from-slate-800 to-slate-900 text-white p-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-4 text-yellow-400 text-5xl mt-10 mb-2">🌙</div>
+          <h1 className="text-4xl font-light tracking-wide">FastingTimer</h1>
+          <p className="text-slate-400 mt-2 mb-8">Your Intermittent Fasting Calculator</p>
+
+          <div className="bg-slate-700/40 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
+            <h2 className="text-xl font-semibold mb-4">When did you last eat?</h2>
+            <div className="flex flex-wrap gap-4 justify-center mb-6">
+              <div>
+                <label className="text-sm text-slate-300">Date</label>
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  className="datetime-input w-40 p-3 rounded-xl bg-slate-900 border border-slate-600 text-white"
+                />
+              </div>
+              <div>
+                <label className="text-sm text-slate-300">Time</label>
+                <input
+                  type="time"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  className="datetime-input w-40 p-3 rounded-xl bg-slate-900 border border-slate-600 text-white"
+                />
+              </div>
+            </div>
+
+            <h3 className="text-lg mb-2 font-medium">Choose your fasting method:</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+              {options.map((opt) => (
+                <button
+                  key={opt.label}
+                  onClick={() => setSelected(opt)}
+                  className={`p-3 rounded-xl text-left border transition ${
+                    selected.label === opt.label
+                      ? "bg-yellow-400 text-black font-bold"
+                      : "bg-slate-800 text-white border-slate-600 hover:bg-slate-700"
+                  }`}
+                >
+                  <div className="text-base">{opt.label}</div>
+                  <div className="text-xs text-slate-300">{opt.desc}</div>
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={calculate}
+              className="calculate-btn w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 font-bold py-3 rounded-xl hover:scale-[1.01] transition"
+            >
+              🕐 Calculate Fasting Time
+            </button>
+
+            {canEatTime && (
+              <div className="results mt-8 bg-slate-800/50 border border-yellow-400/30 rounded-xl p-6 text-center">
+                <div className="text-yellow-400 text-4xl font-bold mb-2">
+                  {getTimeParts(remaining).h.toString().padStart(2, "0")}:
+                  {getTimeParts(remaining).m.toString().padStart(2, "0")}:
+                  {getTimeParts(remaining).s.toString().padStart(2, "0")}
+                </div>
+                <div className="text-slate-200 text-lg">
+                  You have fasted for {getTimeParts(elapsed).h}h {getTimeParts(elapsed).m}m.
+                  <br />
+                  You can eat in {getTimeParts(remaining).h}h {getTimeParts(remaining).m}m.
+                </div>
+
+                <svg className="progress-ring mt-6 mx-auto" width="200" height="200">
+                  <circle
+                    className="background"
+                    cx="100"
+                    cy="100"
+                    r="90"
+                    stroke="#334155"
+                    strokeWidth="8"
+                    fill="none"
+                  />
+                  <circle
+                    className="progress"
+                    cx="100"
+                    cy="100"
+                    r="90"
+                    stroke="#fbbf24"
+                    strokeWidth="8"
+                    fill="none"
+                    strokeDasharray={2 * Math.PI * 90}
+                    strokeDashoffset={(1 - progress / 100) * 2 * Math.PI * 90}
+                    strokeLinecap="round"
+                    style={{ transition: "stroke-dashoffset 0.3s ease" }}
+                  />
+                </svg>
+
+                <div className="text-slate-300 mt-4">
+                  You can eat at:{" "}
+                  <strong>
+                    {canEatTime.toLocaleTimeString("en-US", {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </strong>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    </>
+  )
 }
