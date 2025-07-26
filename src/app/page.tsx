@@ -173,6 +173,37 @@ export default function Page() {
                 </div>
               </div>
             )}
+
+            {/* 💡 UUS - AFFILIATE LINGID */}
+            <div className="mt-12">
+              <h3 className="text-lg font-semibold mb-4 text-center">Helpful Resources</h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="#"
+                  className="affiliate-btn"
+                >
+                  📱 Get Zero App
+                </a>
+                <a
+                  href="#"
+                  className="affiliate-btn"
+                >
+                  📚 Fasting Guide
+                </a>
+                <a
+                  href="#"
+                  className="affiliate-btn"
+                >
+                  🥗 Meal Plans
+                </a>
+                <a
+                  href="#"
+                  className="affiliate-btn"
+                >
+                  💊 Supplements
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </main>
