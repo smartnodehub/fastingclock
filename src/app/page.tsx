@@ -94,14 +94,11 @@ export default function Page() {
         <div className="max-w-3xl mx-auto text-center">
           {/* FastingClock Professional Logo */}
           <div className="text-center mb-6 mt-10">
-            <Image
-              src="/fastingclock-logo-adsense-5to1.png"
-              alt="FastingClock Logo"
-              width={300}
-              height={60}
-              className="mx-auto"
-              priority
-            />
+            <div className="text-5xl mb-2">⏰</div>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              FastingClock
+            </h1>
+            <p className="text-slate-400 text-lg">Your Intermittent Fasting Timer</p>
           </div>
 
           <div className="bg-slate-700/40 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
