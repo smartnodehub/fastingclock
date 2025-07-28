@@ -1,6 +1,7 @@
 'use client'
 
 import Head from 'next/head'
+import Image from 'next/image'
 import { useEffect, useState } from "react"
 
 type FastingOption = {
@@ -91,9 +92,16 @@ export default function Page() {
 
       <main className="min-h-screen bg-gradient-to-b from-slate-800 to-slate-900 text-white p-4">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-4 text-yellow-400 text-5xl mt-10 mb-2">🌙</div>
-          <h1 className="text-4xl font-light tracking-wide">FastingTimer</h1>
-          <p className="text-slate-400 mt-2 mb-8">Your Intermittent Fasting Calculator</p>
+          <div className="text-center mb-6 mt-10">
+            <Image
+              src="/fastingclock-logo-adsense-5to1.png"
+              alt="FastingClock Logo"
+              width={300}
+              height={60}
+              className="mx-auto"
+              priority
+            />
+          </div>
 
           <div className="bg-slate-700/40 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
             <h2 className="text-xl font-semibold mb-4">When did you last eat?</h2>
