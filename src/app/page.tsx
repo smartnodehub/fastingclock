@@ -35,10 +35,10 @@ export default function Page() {
   // AdSense initialization
   useEffect(() => {
     try {
-      // @ts-expect-error
+      // @ts-expect-error AdSense is not typed
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (e) {
-      console.error("AdSense error", e)
+      console.error("AdSense error", e);
     }
   }, []);
 
