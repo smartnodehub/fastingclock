@@ -36,9 +36,9 @@ export default function Page() {
   // AdSense initialization
   useEffect(() => {
     try {
-      // @ts-expect-error AdSense is not typed
-      if (window.adsbygoogle && Array.isArray(window.adsbygoogle)) {
-        window.adsbygoogle.push({});
+      const ads = (window as any).adsbygoogle;
+      if (ads && Array.isArray(ads)) {
+        ads.push({});
       }
     } catch (e) {
       console.error("AdSense error", e);
