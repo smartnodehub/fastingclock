@@ -92,6 +92,7 @@ export default function Page() {
 
       <main className="min-h-screen bg-gradient-to-b from-slate-800 to-slate-900 text-white p-4">
         <div className="max-w-3xl mx-auto text-center">
+          {/* FastingClock Professional Logo */}
           <div className="text-center mb-6 mt-10">
             <Image
               src="/fastingclock-logo-adsense-5to1.png"
