@@ -32,6 +32,16 @@ export default function Page() {
     return () => clearInterval(interval)
   }, [])
 
+  // AdSense initialization
+  useEffect(() => {
+    try {
+      // @ts-ignore
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("AdSense error", e)
+    }
+  }, []);
+
   const calculate = () => {
     if (!date || !time) return
     const start = new Date(`${date}T${time}`)
@@ -203,6 +213,18 @@ export default function Page() {
                   💊 Supplements
                 </a>
               </div>
+            </div>
+
+            {/* AdSense Ad Block */}
+            <div className="mt-10 text-center">
+              <ins
+                className="adsbygoogle"
+                style={{ display: "block" }}
+                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
             </div>
           </div>
         </div>
