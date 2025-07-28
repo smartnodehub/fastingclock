@@ -35,7 +35,7 @@ export default function Page() {
   // AdSense initialization
   useEffect(() => {
     try {
-      // @ts-ignore
+      // @ts-expect-error - AdSense global is not typed
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (e) {
       console.error("AdSense error", e)
