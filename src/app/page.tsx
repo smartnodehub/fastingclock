@@ -36,7 +36,9 @@ export default function Page() {
   useEffect(() => {
     try {
       // @ts-expect-error AdSense is not typed
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      if (window.adsbygoogle && Array.isArray(window.adsbygoogle)) {
+        window.adsbygoogle.push({});
+      }
     } catch (e) {
       console.error("AdSense error", e);
     }
@@ -196,13 +198,13 @@ export default function Page() {
               </div>
             </div>
 
-            {/* AdSense ad block */}
+            {/* Google AdSense display ad block */}
             <div className="mt-10 text-center">
               <ins
                 className="adsbygoogle"
                 style={{ display: "block" }}
                 data-ad-client="ca-pub-7058115116105378"
-                data-ad-slot="1234567890"
+                data-ad-slot="3748465240"
                 data-ad-format="auto"
                 data-full-width-responsive="true"
               ></ins>
