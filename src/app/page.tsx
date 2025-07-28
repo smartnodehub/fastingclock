@@ -80,6 +80,13 @@ export default function Page() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://fastingclock.com/" />
+        
+        {/* ✅ Google AdSense script */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7058115116105378"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
 
       <main className="min-h-screen bg-gradient-to-b from-slate-800 to-slate-900 text-white p-4">
