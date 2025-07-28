@@ -1,7 +1,6 @@
 'use client'
 
 import Head from 'next/head'
-import Image from 'next/image'
 import { useEffect, useState } from "react"
 
 type FastingOption = {
@@ -36,7 +35,7 @@ export default function Page() {
   // AdSense initialization
   useEffect(() => {
     try {
-      const ads = (window as any).adsbygoogle;
+      const ads = window.adsbygoogle;
       if (ads && Array.isArray(ads)) {
         ads.push({});
       }
