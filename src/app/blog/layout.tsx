@@ -19,9 +19,9 @@ export default function BlogLayout({ children }: BlogLayoutProps) {
             <Link href="/" className="flex items-center gap-3 text-blue-400 hover:text-blue-300 transition-colors group">
               <div className="relative">
                 <img
-                  src="/fastingclock-logo-adsense-5to1.png"
+                  src="/fasting-clock-logo.svg"
                   alt="Fasting Clock Logo"
-                  className="h-4 w-auto sm:h-5 md:h-6 transition-transform group-hover:scale-105"
+                  className="w-16 h-8 sm:w-20 sm:h-10 transition-transform group-hover:scale-105"
                 />
               </div>
               <span className="text-lg sm:text-xl font-bold">← Back to Fasting Clock</span>
