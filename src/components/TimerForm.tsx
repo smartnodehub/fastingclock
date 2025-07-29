@@ -1,6 +1,5 @@
-// File: src/components/TimerForm.tsx
 "use client";
-import { FC, useState } from "react";
+import { FC, useState, useEffect, useRef } from "react";
 
 const methods = [
   { key: "16:8", label: "16:8", desc: "16h fast, 8h eating", hours: 16 },
@@ -17,11 +16,66 @@ const TimerForm: FC = () => {
   const [method, setMethod] = useState<string>(methods[0].key);
   const [result, setResult] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [timeRemaining, setTimeRemaining] = useState<number>(0);
+  const [fastEndTime, setFastEndTime] = useState<Date | null>(null);
+  const [isCountdownActive, setIsCountdownActive] = useState<boolean>(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Cleanup interval on component unmount
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
+
+  // Live countdown effect
+  useEffect(() => {
+    if (isCountdownActive && fastEndTime) {
+      intervalRef.current = setInterval(() => {
+        const now = new Date();
+        const remaining = fastEndTime.getTime() - now.getTime();
+        
+        if (remaining <= 0) {
+          // Fast is complete
+          setTimeRemaining(0);
+          setIsCountdownActive(false);
+          setResult("🎉 Your fast has ended! You can break your fast now.");
+          if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+          }
+        } else {
+          setTimeRemaining(remaining);
+        }
+      }, 1000);
+
+      return () => {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+        }
+      };
+    }
+  }, [isCountdownActive, fastEndTime]);
+
+  const formatTime = (milliseconds: number): string => {
+    if (milliseconds <= 0) return "0h 0m 0s";
+    
+    const hours = Math.floor(milliseconds / (1000 * 60 * 60));
+    const minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
+    
+    return `${hours}h ${minutes}m ${seconds}s`;
+  };
 
   const handleCalculate = () => {
     // Clear previous results and errors
     setResult("");
     setError("");
+    setIsCountdownActive(false);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
 
     // Validation: Check if both date and time are selected
     if (!date || !time) {
@@ -47,32 +101,45 @@ const TimerForm: FC = () => {
       }
 
       // Calculate when the fast will end
-      const fastEndTime = new Date(lastMealDateTime.getTime() + (selectedMethod.hours * 60 * 60 * 1000));
+      const endTime = new Date(lastMealDateTime.getTime() + (selectedMethod.hours * 60 * 60 * 1000));
+      setFastEndTime(endTime);
       
       // Get current time for comparison
       const now = new Date();
       
       // Calculate remaining time
-      const timeRemaining = fastEndTime.getTime() - now.getTime();
+      const remaining = endTime.getTime() - now.getTime();
       
-      if (timeRemaining > 0) {
-        // Fast is still ongoing
-        const hoursRemaining = Math.floor(timeRemaining / (1000 * 60 * 60));
-        const minutesRemaining = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        
-        setResult(`Your ${selectedMethod.label} fast will end at ${fastEndTime.toLocaleString()}. Time remaining: ${hoursRemaining}h ${minutesRemaining}m`);
+      if (remaining > 0) {
+        // Fast is still ongoing - start live countdown
+        setTimeRemaining(remaining);
+        setIsCountdownActive(true);
+        setResult(`Your ${selectedMethod.label} fast will end at ${endTime.toLocaleString()}`);
       } else {
-        // Fast is complete
-        const timeComplete = Math.abs(timeRemaining);
+        // Fast is already complete
+        const timeComplete = Math.abs(remaining);
         const hoursComplete = Math.floor(timeComplete / (1000 * 60 * 60));
         const minutesComplete = Math.floor((timeComplete % (1000 * 60 * 60)) / (1000 * 60));
         
-        setResult(`Your ${selectedMethod.label} fast completed ${hoursComplete}h ${minutesComplete}m ago! You can break your fast now.`);
+        setResult(`🎉 Your ${selectedMethod.label} fast completed ${hoursComplete}h ${minutesComplete}m ago! You can break your fast now.`);
+        setTimeRemaining(0);
+        setIsCountdownActive(false);
       }
 
     } catch (err) {
       setError("Error calculating fasting time. Please check your inputs.");
       console.error("Fasting calculation error:", err);
+    }
+  };
+
+  const handleReset = () => {
+    setResult("");
+    setError("");
+    setTimeRemaining(0);
+    setFastEndTime(null);
+    setIsCountdownActive(false);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
     }
   };
 
@@ -140,28 +207,64 @@ const TimerForm: FC = () => {
 
       {/* Calculate Button */}
       <div className="text-center mb-6">
-        <button 
-          onClick={handleCalculate}
-          disabled={!isFormValid}
-          className={`px-8 py-3 rounded-lg font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 ${
-            isFormValid 
-              ? "bg-yellow-400 text-black hover:bg-yellow-300 cursor-pointer" 
-              : "bg-gray-600 text-gray-400 cursor-not-allowed"
-          }`}
-          type="button"
-        >
-          Calculate Fasting Time
-        </button>
+        <div className="flex justify-center gap-4">
+          <button 
+            onClick={handleCalculate}
+            disabled={!isFormValid}
+            className={`px-8 py-3 rounded-lg font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 ${
+              isFormValid 
+                ? "bg-yellow-400 text-black hover:bg-yellow-300 cursor-pointer" 
+                : "bg-gray-600 text-gray-400 cursor-not-allowed"
+            }`}
+            type="button"
+          >
+            Calculate Fasting Time
+          </button>
+          {(result || isCountdownActive) && (
+            <button 
+              onClick={handleReset}
+              className="px-6 py-3 rounded-lg font-bold bg-gray-700 text-white hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400/50"
+              type="button"
+            >
+              Reset
+            </button>
+          )}
+        </div>
         {!isFormValid && (
           <p className="text-sm text-blue-200 mt-2">Please select both date and time</p>
         )}
       </div>
 
+      {/* Live Countdown Display */}
+      {isCountdownActive && timeRemaining > 0 && (
+        <div className="text-center mb-6">
+          <div className="bg-yellow-400/10 border border-yellow-400 rounded-lg p-6 inline-block">
+            <h3 className="text-lg font-semibold text-yellow-400 mb-2">Time Remaining</h3>
+            <div className="text-3xl font-bold text-yellow-300 mb-2">
+              {formatTime(timeRemaining)}
+            </div>
+            <div className="text-sm text-yellow-200 opacity-75">
+              Live countdown updating every second
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Result Display */}
       {result && (
         <div className="text-center">
-          <div className="bg-green-900/20 border border-green-700 rounded-lg p-4 inline-block max-w-2xl">
-            <p className="text-green-300 font-medium">{result}</p>
+          <div className={`${
+            timeRemaining <= 0 && result.includes("🎉") 
+              ? "bg-green-900/20 border border-green-700" 
+              : "bg-blue-900/20 border border-blue-700"
+          } rounded-lg p-4 inline-block max-w-2xl`}>
+            <p className={`${
+              timeRemaining <= 0 && result.includes("🎉")
+                ? "text-green-300" 
+                : "text-blue-200"
+            } font-medium`}>
+              {result}
+            </p>
           </div>
         </div>
       )}
