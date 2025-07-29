@@ -1,4 +1,33 @@
-"use client";
+import IntroSection from "../components/IntroSection";
+import BenefitList  from "../components/BenefitList";
+import FAQ          from "../components/FAQ";
+import { content }  from "../content/content.en";
+
+export const metadata = {
+  title: "Fasting Clock – 16:8 Fasting Guide",
+  description: "Learn the benefits of 16:8 fasting and track your fast with Fasting Clock",
+};
+
+export default function HomePage() {
+  return (
+    <main className="min-h-screen bg-white text-gray-900">
+      {/* 1. Intro */}
+      <IntroSection text={content.intro16to8} />
+
+      {/* 2. (Your existing TimerForm) */}
+      {/* <TimerForm /> */}
+
+      {/* 3. Helpful resources bar (if you have one) */}
+      {/* <ResourceLinks /> */}
+
+      {/* 4. Benefits */}
+      <BenefitList items={content.benefits} />
+
+      {/* 5. FAQ */}
+      <FAQ items={content.faqItems} />
+    </main>
+  );
+}
 import React, { useEffect } from "react";
 import { content } from "../content/content.en";
 
@@ -46,27 +75,34 @@ export default function Page() {
           <div className="my-8 text-center">
             <ins
               className="adsbygoogle"
-              style={{ display: "block" }}
-              data-ad-client="ca-pub-7058115116105378"
-              data-ad-slot="3748465240"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins>
-          </div>
-        </div>
+import IntroSection from "../components/IntroSection";
+import BenefitList  from "../components/BenefitList";
+import FAQ          from "../components/FAQ";
+import { content }  from "../content/content.en";
 
-        {/* Parem reklaamiala */}
-        <div className="hidden lg:block">
-          <ins
-            className="adsbygoogle"
-            style={{ display: "block", width: "200px", height: "600px" }}
-            data-ad-client="ca-pub-7058115116105378"
-            data-ad-slot="3748465240"
-            data-ad-format="vertical"
-          ></ins>
-        </div>
+export const metadata = {
+  title: "Fasting Clock – 16:8 Fasting Guide",
+  description: "Learn the benefits of 16:8 fasting and track your fast with Fasting Clock",
+};
 
-      </div>
+export default function HomePage() {
+  return (
+    <main className="min-h-screen bg-white text-gray-900">
+      {/* 1. Intro */}
+      <IntroSection text={content.intro16to8} />
+
+      {/* 2. (Your existing TimerForm) */}
+      {/* <TimerForm /> */}
+
+      {/* 3. Helpful resources bar (if you have one) */}
+      {/* <ResourceLinks /> */}
+
+      {/* 4. Benefits */}
+      <BenefitList items={content.benefits} />
+
+      {/* 5. FAQ */}
+      <FAQ items={content.faqItems} />
     </main>
   );
+}
 }
