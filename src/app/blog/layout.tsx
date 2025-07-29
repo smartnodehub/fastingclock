@@ -16,10 +16,17 @@ export default function BlogLayout({ children }: BlogLayoutProps) {
       <header className="border-b border-gray-700 bg-gray-800">
         <div className="container mx-auto px-4 py-6">
           <nav className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-blue-400 hover:text-blue-300">
-              ← Back to Fasting Clock
+            <Link href="/" className="flex items-center gap-3 text-blue-400 hover:text-blue-300 transition-colors group">
+              <div className="relative">
+                <img
+                  src="/fastingclock-logo-adsense-5to1.png"
+                  alt="Fasting Clock Logo"
+                  className="h-4 w-auto sm:h-5 md:h-6 transition-transform group-hover:scale-105"
+                />
+              </div>
+              <span className="text-lg sm:text-xl font-bold">← Back to Fasting Clock</span>
             </Link>
-            <h1 className="text-2xl font-bold">Fasting Blog</h1>
+            <h1 className="text-xl sm:text-2xl font-bold">Fasting Blog</h1>
           </nav>
         </div>
       </header>

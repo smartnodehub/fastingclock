@@ -1,4 +1,5 @@
 // File: src/app/page.tsx
+import Header        from "@/components/Header";
 import IntroSection  from "@/components/IntroSection";
 import TimerForm     from "@/components/TimerForm";
 import ResourceLinks from "@/components/ResourceLinks";
@@ -14,6 +15,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-gray-900 text-white">
+      <Header />
       <TimerForm />
       <ResourceLinks />
       <IntroSection text={content.intro16to8} />
