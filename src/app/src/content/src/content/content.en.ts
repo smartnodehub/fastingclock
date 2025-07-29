@@ -1,28 +1,15 @@
-export const content = {
-  headline: "FastingTimer",
-  subtitle: "Your Intermittent Fasting Calculator",
-  question1: "When did you last eat?",
-  question2: "Choose your fasting method:",
-  buttonLabel: "🕐 Calculate Fasting Time",
-  results: {
-    fastingTime: "You have fasted for",
-    timeLeft: "You can eat in",
-    nextMeal: "You can eat at",
-    done: "🎉 You can eat now!",
-    completed: "Your fasting period is complete!",
-  },
-  methods: [
-    { title: "16:8", desc: "16h fast, 8h eating" },
-    { title: "18:6", desc: "18h fast, 6h eating" },
-    { title: "20:4", desc: "20h fast, 4h eating" },
-    { title: "OMAD", desc: "One meal a day" },
-    { title: "24h", desc: "Full day fast" },
-    { title: "36h", desc: "Extended fast" },
+import type { Content } from "../../../../../types/content";
+
+export const content: Content = {
+  intro16to8: "<h1>Welcome to FastingTimer!</h1><p>Track your fasting period and see the benefits of intermittent fasting.</p>",
+  benefits: [
+    { title: "Weight Loss", description: "Intermittent fasting can help reduce body fat." },
+    { title: "Improved Metabolism", description: "Fasting boosts metabolic health." },
+    { title: "Mental Clarity", description: "Many report better focus during fasting." }
   ],
-  footerLinks: [
-    { label: "📱 Get Zero App", url: "#" },
-    { label: "📚 Fasting Guide", url: "#" },
-    { label: "🥗 Meal Plans", url: "#" },
-    { label: "💊 Supplements", url: "#" },
-  ],
+  faqItems: [
+    { question: "What is 16:8 fasting?", answer: "16 hours fasting, 8 hours eating window." },
+    { question: "Can I drink water while fasting?", answer: "Yes, water, tea, and black coffee are allowed." },
+    { question: "Is fasting safe?", answer: "For most healthy adults, yes. Consult your doctor if unsure." }
+  ]
 }

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { content } from "./src/content/src/content/content.en";
 
 export default function Page() {
   useEffect(() => {
@@ -28,11 +29,37 @@ export default function Page() {
 
         {/* Keskne sisu */}
         <div>
-          {/* 1) Artikkel / sisuloogika */}
-          <article className="prose mx-auto py-8">
-            <h1>Intermittent Fasting 16:8 – Mikä se on ja miksi kokeilla?</h1>
-            {/* …300+ sanainen teksti, FAQ, affiliate-linkit … */}
-          </article>
+          {/* ===== 1) Intro ===== */}
+          <section className="prose mx-auto py-8">
+            <div
+              dangerouslySetInnerHTML={{ __html: content.intro16to8 }}
+            />
+          </section>
+
+          {/* ===== 2) Benefits ===== */}
+          <section className="mx-auto py-8">
+            <h2 className="text-2xl font-bold mb-4">Key Benefits</h2>
+            <ul className="list-disc marker:text-yellow-500 pl-5 space-y-2">
+              {content.benefits.map((b: { title: string; description: string }, i: number) => (
+                <li key={i}>
+                  <strong>{b.title}:</strong> {b.description}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* ===== 3) FAQ ===== */}
+          <section className="mx-auto py-8">
+            <h2 className="text-2xl font-bold mb-4">FAQ</h2>
+            <div className="space-y-6">
+              {content.faqItems.map((f: { question: string; answer: string }, i: number) => (
+                <div key={i}>
+                  <h3 className="text-xl font-semibold">{f.question}</h3>
+                  <p className="mt-1">{f.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
           {/* 2) Timer-komponentti */}
           <section className="my-8">
