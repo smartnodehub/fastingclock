@@ -1,0 +1,40 @@
+import Link from "next/link";
+
+export const metadata = {
+  title: "Fasting Clock Blog - Latest Tips & Insights",
+  description: "Discover the latest fasting tips, health insights, and intermittent fasting guides on the Fasting Clock blog.",
+};
+
+interface BlogLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function BlogLayout({ children }: BlogLayoutProps) {
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Blog Header */}
+      <header className="border-b border-gray-700 bg-gray-800">
+        <div className="container mx-auto px-4 py-6">
+          <nav className="flex items-center justify-between">
+            <Link href="/" className="text-xl font-bold text-blue-400 hover:text-blue-300">
+              ← Back to Fasting Clock
+            </Link>
+            <h1 className="text-2xl font-bold">Fasting Blog</h1>
+          </nav>
+        </div>
+      </header>
+
+      {/* Blog Content */}
+      <main className="container mx-auto px-4 py-8">
+        {children}
+      </main>
+
+      {/* Blog Footer */}
+      <footer className="border-t border-gray-700 bg-gray-800 mt-16">
+        <div className="container mx-auto px-4 py-6 text-center text-gray-400">
+          <p>&copy; 2025 Fasting Clock. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}

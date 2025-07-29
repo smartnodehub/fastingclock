@@ -2,6 +2,7 @@
 import { FC } from "react";
 
 const links = [
+  { href: "/blog", label: "Fasting Blog", icon: "📝" },
   { href: "#", label: "Get Zero App", icon: "📱" },
   { href: "#", label: "Fasting Guide", icon: "📖" },
   { href: "#", label: "Meal Plans", icon: "🥗" },

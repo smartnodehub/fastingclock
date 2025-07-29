@@ -39,3 +39,44 @@ body {
 .affiliate-btn:hover {
   background: rgba(251, 191, 36, 0.1);
 }
+
+/* Blog Post Content Styles */
+.prose {
+  color: #e5e7eb;
+}
+
+.prose h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.prose ul {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Line clamp utility for excerpts */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
