@@ -142,59 +142,64 @@ export default function Page() {
             </div>
 
             <button
-              onClick={calculate}
-              className="calculate-btn w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 font-bold py-3 rounded-xl hover:scale-[1.01] transition"
-            >
-              🕐 Calculate Fasting Time
-            </button>
+  return (
+    <main className="container mx-auto py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[150px_minmax(0,1fr)_150px] gap-4">
+        {/* Vasak reklaamiala – alati nähtav, mobiilis väiksem */}
+        <div className="flex justify-center items-center">
+          <ins
+            className="adsbygoogle"
+            style={{ display: "block", width: "100%", minHeight: "120px", maxHeight: "300px" }}
+            data-ad-client="ca-pub-7058115116105378"
+            data-ad-slot="3748465240"
+            data-ad-format="vertical"
+          ></ins>
+        </div>
 
-            {canEatTime && (
-              <div className="results mt-8 bg-slate-800/50 border border-yellow-400/30 rounded-xl p-6 text-center">
-                <div className="text-yellow-400 text-4xl font-bold mb-2">
-                  {getTimeParts(remaining).h.toString().padStart(2, "0")}:
-                  {getTimeParts(remaining).m.toString().padStart(2, "0")}:
-                  {getTimeParts(remaining).s.toString().padStart(2, "0")}
-                </div>
-                <div className="text-slate-200 text-lg">
-                  You have fasted for {getTimeParts(elapsed).h}h {getTimeParts(elapsed).m}m.
-                  <br />
-                  You can eat in {getTimeParts(remaining).h}h {getTimeParts(remaining).m}m.
-                </div>
+        {/* Keskne sisu */}
+        <div>
+          {/* 1) Artikkel/sisuloogika */}
+          <article className="prose mx-auto py-8">
+            {/* …siin on 300+ sõnaline artikkel, FAQ ja affiliate linkid… */}
+          </article>
 
-                <svg className="progress-ring mt-6 mx-auto" width="200" height="200">
-                  <circle
-                    className="background"
-                    cx="100"
-                    cy="100"
-                    r="90"
-                    stroke="#334155"
-                    strokeWidth="8"
-                    fill="none"
-                  />
-                  <circle
-                    className="progress"
-                    cx="100"
-                    cy="100"
-                    r="90"
-                    stroke="#fbbf24"
-                    strokeWidth="8"
-                    fill="none"
-                    strokeDasharray={2 * Math.PI * 90}
-                    strokeDashoffset={(1 - progress / 100) * 2 * Math.PI * 90}
-                    strokeLinecap="round"
-                    style={{ transition: "stroke-dashoffset 0.3s ease" }}
-                  />
-                </svg>
+          {/* 2) Timer-komponent */}
+          <section className="my-8">
+            {/* …sinu fasting timer JSX… */}
+          </section>
 
-                <div className="text-slate-300 mt-4">
-                  You can eat at:{" "}
-                  <strong>
-                    {canEatTime &&
-                      canEatTime.toLocaleTimeString("en-US", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                  </strong>
+          {/* 3) Veel blogi- ja ressurssiosa */}
+          <section className="prose mx-auto py-8">
+            <h2>Blog & Resources</h2>
+            {/* Linkid / esilehed / preview’d */}
+          </section>
+
+          {/* 4) Keskne AdSense loosko */}
+          <div className="my-8 text-center">
+            <ins
+              className="adsbygoogle"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-7058115116105378"
+              data-ad-slot="3748465240"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+          </div>
+        </div>
+
+        {/* Parem reklaamiala – alati nähtav, mobiilis väiksem */}
+        <div className="flex justify-center items-center">
+          <ins
+            className="adsbygoogle"
+            style={{ display: "block", width: "100%", minHeight: "120px", maxHeight: "300px" }}
+            data-ad-client="ca-pub-7058115116105378"
+            data-ad-slot="3748465240"
+            data-ad-format="vertical"
+          ></ins>
+        </div>
+      </div>
+    </main>
+  );
                 </div>
               </div>
             )}
