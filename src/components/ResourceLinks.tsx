@@ -9,7 +9,7 @@ const links = [
 ];
 
 const ResourceLinks: FC = () => (
-  <section className="py-8 bg-blue-900 text-white">
+  <section className="py-8 px-4 bg-blue-900 text-white">
     <h2 className="text-xl font-semibold text-center mb-4">Helpful Resources</h2>
     <div className="flex flex-wrap justify-center gap-4">
       {links.map((l, i) => (

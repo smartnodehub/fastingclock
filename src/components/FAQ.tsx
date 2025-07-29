@@ -11,7 +11,7 @@ interface Props {
 }
 
 const FAQ: FC<Props> = ({ items }) => (
-  <section className="py-8 bg-gray-900 text-white">
+  <section className="py-8 px-4 bg-gray-900 text-white">
     <h2 className="text-2xl font-bold text-center mb-6">FAQ</h2>
     <div className="max-w-2xl mx-auto space-y-4">
       {items.map((qa, idx) => (

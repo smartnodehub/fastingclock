@@ -12,7 +12,7 @@ interface Props {
 }
 
 const BenefitList: FC<Props> = ({ items }) => (
-  <section className="py-8 bg-gray-900 text-white">
+  <section className="py-8 px-4 bg-gray-900 text-white">
     <h2 className="text-2xl font-bold text-center mb-6">Key Benefits</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
       {items.map((b, i) => (

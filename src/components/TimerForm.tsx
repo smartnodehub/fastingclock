@@ -17,7 +17,7 @@ const TimerForm: FC = () => {
   const [method, setMethod] = useState<string>(methods[0].key);
 
   return (
-    <section className="py-8 bg-blue-900 text-white">
+    <section className="py-8 px-4 bg-blue-900 text-white">
       <h2 className="text-2xl font-semibold text-center mb-4">When did you last eat?</h2>
       <div className="flex justify-center space-x-4 mb-6">
         <input type="date" className="p-2 bg-blue-800 rounded-md" value={date} onChange={e => setDate(e.target.value)} />

@@ -14,9 +14,9 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-gray-900 text-white">
-      <IntroSection text={content.intro16to8} />
       <TimerForm />
       <ResourceLinks />
+      <IntroSection text={content.intro16to8} />
       <BenefitList items={content.benefits} />
       <FAQ items={content.faqItems} />
     </main>
