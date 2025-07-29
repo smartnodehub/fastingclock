@@ -1,8 +1,28 @@
 import BlogList from "@/components/BlogList";
 
 export const metadata = {
-  title: "Fasting Clock Blog - Latest Posts",
-  description: "Read the latest posts about intermittent fasting, health tips, and wellness insights.",
+  title: "Blog – Fasting Clock",
+  description: "Latest articles on intermittent fasting, nutrition, and wellness. Discover expert tips, science-backed insights, and practical guides for your health journey.",
+  openGraph: {
+    title: "Blog – Fasting Clock",
+    description: "Latest articles on intermittent fasting, nutrition, and wellness. Discover expert tips, science-backed insights, and practical guides for your health journey.",
+    url: "https://fastingclock.com/blog",
+    type: "website",
+    images: [
+      {
+        url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
+        width: 1200,
+        height: 240,
+        alt: "Fasting Clock Blog - Intermittent Fasting Articles",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog – Fasting Clock",
+    description: "Latest articles on intermittent fasting, nutrition, and wellness. Discover expert tips, science-backed insights, and practical guides for your health journey.",
+    images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
+  },
 };
 
 export default function BlogPage() {

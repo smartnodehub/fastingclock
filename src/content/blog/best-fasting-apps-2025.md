@@ -2,6 +2,7 @@
 title: "Best Fasting Apps 2025: Top 5 Apps to Track Your Intermittent Fasting Journey"
 date: "2025-07-29"
 description: "Discover the best intermittent fasting apps of 2025 to help you track your fasts, stay motivated, and achieve your health goals."
+image: "/fastingclock-logo-adsense-5to1.png"
 ---
 
 # Best Fasting Apps 2025: Top 5 Apps to Track Your Intermittent Fasting Journey

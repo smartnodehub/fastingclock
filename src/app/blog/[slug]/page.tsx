@@ -27,9 +27,35 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     };
   }
 
+  const baseUrl = "https://fastingclock.com";
+  const postUrl = `${baseUrl}/blog/${slug}`;
+  const postImage = post.image ? `${baseUrl}${post.image}` : `${baseUrl}/fastingclock-logo-adsense-5to1.png`;
+
   return {
     title: `${post.title} | Fasting Clock Blog`,
     description: post.excerpt || post.description,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || post.description,
+      url: postUrl,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author || "Fasting Clock Team"],
+      images: [
+        {
+          url: postImage,
+          width: 1200,
+          height: 240,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt || post.description,
+      images: [postImage],
+    },
   };
 }
 

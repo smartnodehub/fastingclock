@@ -3,7 +3,27 @@ import { getAllPosts } from "@/lib/blog";
 
 export const metadata = {
   title: "All Posts | Fasting Clock Blog",
-  description: "Browse all our intermittent fasting tips, guides, and health insights.",
+  description: "Browse all our intermittent fasting tips, guides, and health insights. Complete archive of articles on fasting, nutrition, and wellness.",
+  openGraph: {
+    title: "All Posts | Fasting Clock Blog",
+    description: "Browse all our intermittent fasting tips, guides, and health insights. Complete archive of articles on fasting, nutrition, and wellness.",
+    url: "https://fastingclock.com/blog/all",
+    type: "website",
+    images: [
+      {
+        url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
+        width: 1200,
+        height: 240,
+        alt: "Fasting Clock Blog - All Posts",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "All Posts | Fasting Clock Blog",
+    description: "Browse all our intermittent fasting tips, guides, and health insights. Complete archive of articles on fasting, nutrition, and wellness.",
+    images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
+  },
 };
 
 export default function AllPostsPage() {

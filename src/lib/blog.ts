@@ -17,6 +17,7 @@ export interface BlogPost {
   slug: string;
   author?: string;
   readTime?: string;
+  image?: string;
 }
 
 // Collect TypeScript posts
@@ -55,6 +56,7 @@ function getMarkdownPosts(): BlogPost[] {
           slug,
           author: data.author || 'Fasting Clock Team',
           readTime: data.readTime || calculateReadTime(content),
+          image: data.image,
         });
       } catch (error) {
         console.warn(`Error loading Markdown post ${filename}:`, error);

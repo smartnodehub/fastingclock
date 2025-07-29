@@ -2,6 +2,7 @@
 title: "The Science of Fasting: What Happens to Your Body During Intermittent Fasting"
 date: "2025-07-28"
 description: "Explore the fascinating science behind intermittent fasting and discover what happens in your body during different stages of a fast."
+image: "/fastingclock-logo-adsense-5to1.png"
 ---
 
 # The Science of Fasting: What Happens to Your Body During Intermittent Fasting
