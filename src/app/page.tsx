@@ -59,11 +59,10 @@ export default function Page() {
     const s = Math.floor(totalSec % 60)
     return { h, m, s }
   }
-
-  const totalDuration = selected.hours * 60 * 60 * 1000
-  const elapsed = startTime ? now.getTime() - startTime.getTime() : 0
-  const remaining = canEatTime ? canEatTime.getTime() - now.getTime() : 0
-  const progress = Math.min((elapsed / totalDuration) * 100, 100)
+  const totalDuration = selected.hours * 60 * 60 * 1000;
+  const elapsed = startTime ? now.getTime() - startTime.getTime() : 0;
+  const remaining = canEatTime ? canEatTime.getTime() - now.getTime() : 0;
+  const progress = Math.min((elapsed / totalDuration) * 100, 100);
 
   return (
     <>
@@ -80,7 +79,6 @@ export default function Page() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://fastingclock.com/" />
-        
         {/* ✅ Google AdSense script */}
         <script
           async
@@ -90,145 +88,133 @@ export default function Page() {
       </Head>
 
       <main className="min-h-screen bg-gradient-to-b from-slate-800 to-slate-900 text-white p-4">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* FastingClock Professional Logo */}
-          <div className="text-center mb-6 mt-10">
-            <div className="text-5xl mb-2">⏰</div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-              FastingClock
-            </h1>
-            <p className="text-slate-400 text-lg">Your Intermittent Fasting Timer</p>
-          </div>
-
-          <div className="bg-slate-700/40 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
-            <h2 className="text-xl font-semibold mb-4">When did you last eat?</h2>
-            <div className="flex flex-wrap gap-4 justify-center mb-6">
-              <div>
-                <label className="text-sm text-slate-300">Date</label>
-                <input
-                  type="date"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  className="datetime-input w-40 p-3 rounded-xl bg-slate-900 border border-slate-600 text-white"
-                />
-              </div>
-              <div>
-                <label className="text-sm text-slate-300">Time</label>
-                <input
-                  type="time"
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
-                  className="datetime-input w-40 p-3 rounded-xl bg-slate-900 border border-slate-600 text-white"
-                />
-              </div>
-            </div>
-
-            <h3 className="text-lg mb-2 font-medium">Choose your fasting method:</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-              {options.map((opt) => (
-                <button
-                  key={opt.label}
-                  onClick={() => setSelected(opt)}
-                  className={`p-3 rounded-xl text-left border transition ${
-                    selected.label === opt.label
-                      ? "bg-yellow-400 text-black font-bold"
-                      : "bg-slate-800 text-white border-slate-600 hover:bg-slate-700"
-                  }`}
-                >
-                  <div className="text-base">{opt.label}</div>
-                  <div className="text-xs text-slate-300">{opt.desc}</div>
-                </button>
-              ))}
-            </div>
-
-            <button
-  return (
-    <main className="container mx-auto py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-[150px_minmax(0,1fr)_150px] gap-4">
-        {/* Vasak reklaamiala – alati nähtav, mobiilis väiksem */}
-        <div className="flex justify-center items-center">
-          <ins
-            className="adsbygoogle"
-            style={{ display: "block", width: "100%", minHeight: "120px", maxHeight: "300px" }}
-            data-ad-client="ca-pub-7058115116105378"
-            data-ad-slot="3748465240"
-            data-ad-format="vertical"
-          ></ins>
-        </div>
-
-        {/* Keskne sisu */}
-        <div>
-          {/* 1) Artikkel/sisuloogika */}
-          <article className="prose mx-auto py-8">
-            {/* …siin on 300+ sõnaline artikkel, FAQ ja affiliate linkid… */}
-          </article>
-
-          {/* 2) Timer-komponent */}
-          <section className="my-8">
-            {/* …sinu fasting timer JSX… */}
-          </section>
-
-          {/* 3) Veel blogi- ja ressurssiosa */}
-          <section className="prose mx-auto py-8">
-            <h2>Blog & Resources</h2>
-            {/* Linkid / esilehed / preview’d */}
-          </section>
-
-          {/* 4) Keskne AdSense loosko */}
-          <div className="my-8 text-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[150px_minmax(0,1fr)_150px] gap-4">
+          {/* Vasak reklaamiala – alati nähtav, mobiilis väiksem */}
+          <div className="flex justify-center items-center">
             <ins
               className="adsbygoogle"
-              style={{ display: "block" }}
+              style={{ display: "block", width: "100%", minHeight: "120px", maxHeight: "300px" }}
               data-ad-client="ca-pub-7058115116105378"
               data-ad-slot="3748465240"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins>
+              data-ad-format="vertical"
+            />
           </div>
-        </div>
 
-        {/* Parem reklaamiala – alati nähtav, mobiilis väiksem */}
-        <div className="flex justify-center items-center">
-          <ins
-            className="adsbygoogle"
-            style={{ display: "block", width: "100%", minHeight: "120px", maxHeight: "300px" }}
-            data-ad-client="ca-pub-7058115116105378"
-            data-ad-slot="3748465240"
-            data-ad-format="vertical"
-          ></ins>
-        </div>
-      </div>
-    </main>
-  );
+          {/* Keskne sisu */}
+          <div>
+            {/* FastingClock Professional Logo */}
+            <div className="text-center mb-6 mt-10">
+              <div className="text-5xl mb-2">⏰</div>
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                FastingClock
+              </h1>
+              <p className="text-slate-400 text-lg">Your Intermittent Fasting Timer</p>
+            </div>
+
+            <div className="bg-slate-700/40 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
+              <h2 className="text-xl font-semibold mb-4">When did you last eat?</h2>
+              <div className="flex flex-wrap gap-4 justify-center mb-6">
+                <div>
+                  <label className="text-sm text-slate-300">Date</label>
+                  <input
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="datetime-input w-40 p-3 rounded-xl bg-slate-900 border border-slate-600 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="text-sm text-slate-300">Time</label>
+                  <input
+                    type="time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    className="datetime-input w-40 p-3 rounded-xl bg-slate-900 border border-slate-600 text-white"
+                  />
                 </div>
               </div>
-            )}
 
-            {/* 💡 Affiliate buttons */}
-            <div className="mt-12">
-              <h3 className="text-lg font-semibold mb-4 text-center">Helpful Resources</h3>
-              <div className="flex flex-wrap justify-center gap-4">
-                <a href="#" className="affiliate-btn">📱 Get Zero App</a>
-                <a href="#" className="affiliate-btn">📚 Fasting Guide</a>
-                <a href="#" className="affiliate-btn">🥗 Meal Plans</a>
-                <a href="#" className="affiliate-btn">💊 Supplements</a>
+              <h3 className="text-lg mb-2 font-medium">Choose your fasting method:</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                {options.map((opt) => (
+                  <button
+                    key={opt.label}
+                    onClick={() => setSelected(opt)}
+                    className={`p-3 rounded-xl text-left border transition ${
+                      selected.label === opt.label
+                        ? "bg-yellow-400 text-black font-bold"
+                        : "bg-slate-800 text-white border-slate-600 hover:bg-slate-700"
+                    }`}
+                  >
+                    <div className="text-base">{opt.label}</div>
+                    <div className="text-xs text-slate-300">{opt.desc}</div>
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={calculate}
+                className="w-full py-3 rounded-xl bg-yellow-500 text-black font-bold text-lg mt-2 mb-6 hover:bg-yellow-600 transition"
+              >
+                Start Fasting
+              </button>
+
+              {/* Timer display */}
+              {startTime && canEatTime && (
+                <div className="mt-8 mb-8">
+                  <div className="text-2xl font-bold mb-2">Time Remaining</div>
+                  <div className="text-4xl font-mono mb-2">
+                    {getTimeParts(remaining).h}h {getTimeParts(remaining).m}m {getTimeParts(remaining).s}s
+                  </div>
+                  <div className="w-full bg-slate-800 rounded-full h-4 mb-2">
+                    <div
+                      className="bg-yellow-400 h-4 rounded-full"
+                      style={{ width: `${progress}%` }}
+                    ></div>
+                  </div>
+                  <div className="text-slate-400 text-sm">You can eat again at {canEatTime.toLocaleString()}</div>
+                </div>
+              )}
+
+              {/* 💡 Affiliate buttons */}
+              <div className="mt-12">
+                <h3 className="text-lg font-semibold mb-4 text-center">Helpful Resources</h3>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <a href="#" className="affiliate-btn">📱 Get Zero App</a>
+                  <a href="#" className="affiliate-btn">📚 Fasting Guide</a>
+                  <a href="#" className="affiliate-btn">🥗 Meal Plans</a>
+                  <a href="#" className="affiliate-btn">💊 Supplements</a>
+                </div>
+              </div>
+
+              {/* Google AdSense display ad block */}
+              <div className="mt-10 text-center">
+                <ins
+                  className="adsbygoogle"
+                  style={{ display: "block" }}
+                  data-ad-client="ca-pub-7058115116105378"
+                  data-ad-slot="3748465240"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                />
               </div>
             </div>
+          </div>
 
-            {/* Google AdSense display ad block */}
-            <div className="mt-10 text-center">
-              <ins
-                className="adsbygoogle"
-                style={{ display: "block" }}
-                data-ad-client="ca-pub-7058115116105378"
-                data-ad-slot="3748465240"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-              ></ins>
-            </div>
+          {/* Parem reklaamiala – alati nähtav, mobiilis väiksem */}
+          <div className="flex justify-center items-center">
+            <ins
+              className="adsbygoogle"
+              style={{ display: "block", width: "100%", minHeight: "120px", maxHeight: "300px" }}
+              data-ad-client="ca-pub-7058115116105378"
+              data-ad-slot="3748465240"
+              data-ad-format="vertical"
+            />
           </div>
         </div>
       </main>
     </>
-  )
+  );
+// ...existing code...
+// Eemaldatud duplikaatsed ja katkised <ins> elemendid
 }
