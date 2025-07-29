@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Fasting Clock – Intermittent Fasting Timer",
   description: "Track your fasting and eating windows easily.",
+  verification: {
+    google: "JX76zFCjhtttG2yEJ7AyLaHu-nLIN5oRB_KSSPQQlxc",
+  },
 };
 
 export default function RootLayout({
