@@ -1,5 +1,6 @@
+"use client";
 import React, { useEffect } from "react";
-import { content } from "./src/content/src/content/content.en";
+import { content } from "../content/content.en";
 
 export default function Page() {
   useEffect(() => {
