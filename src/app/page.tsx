@@ -1,5 +1,4 @@
 // File: src/app/page.tsx
-
 import IntroSection  from "@/components/IntroSection";
 import TimerForm     from "@/components/TimerForm";
 import ResourceLinks from "@/components/ResourceLinks";
@@ -14,20 +13,11 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-gray-900">
-      {/* 1. SEO-optimized introduction */}
+    <main className="bg-gray-900 text-white">
       <IntroSection text={content.intro16to8} />
-
-      {/* 2. Fasting Timer form */}
       <TimerForm />
-
-      {/* 3. Helpful Resources */}
       <ResourceLinks />
-
-      {/* 4. Key Benefits section */}
       <BenefitList items={content.benefits} />
-
-      {/* 5. FAQ section */}
       <FAQ items={content.faqItems} />
     </main>
   );
