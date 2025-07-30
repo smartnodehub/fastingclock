@@ -24,8 +24,7 @@ Sentry.init({
     }),
     // Web Vitals integration
     Sentry.browserTracingIntegration({
-      // Set 'tracePropagationTargets' to control where tracing headers are attached
-      tracePropagationTargets: ["localhost", /^https:\/\/fastingclock\.com\/api/],
+      // Tracing configuration removed - not supported in this SDK version
     }),
   ],
   
