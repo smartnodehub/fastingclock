@@ -10,6 +10,26 @@ import { content }   from "@/content/content.en";
 export const metadata = {
   title:       "Free Fasting Timer & Clock | FastingClock.com",
   description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
+  openGraph: {
+    title: "Free Fasting Timer & Clock | FastingClock.com",
+    description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
+    url: "https://fastingclock.com",
+    type: "website",
+    images: [
+      {
+        url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
+        width: 1200,
+        height: 240,
+        alt: "Free Fasting Timer & Clock - FastingClock.com",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Fasting Timer & Clock | FastingClock.com",
+    description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
+    images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
+  },
 };
 
 export default function HomePage() {

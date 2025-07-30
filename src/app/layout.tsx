@@ -18,6 +18,26 @@ export const metadata: Metadata = {
   verification: {
     google: "JX76zFCjhtttG2yEJ7AyLaHu-nLIN5oRB_KSSPQQlxc",
   },
+  openGraph: {
+    title: "Free Fasting Timer & Tracker | FastingClock.com",
+    description: "Easily track your fasting with our free fasting timer and sleek fasting clock. Stay on schedule, improve health, and never miss a window—start tracking today!",
+    url: "https://fastingclock.com",
+    type: "website",
+    images: [
+      {
+        url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
+        width: 1200,
+        height: 240,
+        alt: "Free Fasting Timer & Tracker - FastingClock.com",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Fasting Timer & Tracker | FastingClock.com",
+    description: "Easily track your fasting with our free fasting timer and sleek fasting clock. Stay on schedule, improve health, and never miss a window—start tracking today!",
+    images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
+  },
 };
 
 export default function RootLayout({

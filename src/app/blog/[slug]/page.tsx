@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     title: `${post.title} | FastingClock.com`,
     description: post.excerpt || post.description,
     openGraph: {
-      title: post.title,
+      title: `${post.title} | FastingClock.com`,
       description: post.excerpt || post.description,
       url: postUrl,
       type: "article",
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
+      title: `${post.title} | FastingClock.com`,
       description: post.excerpt || post.description,
       images: [postImage],
     },

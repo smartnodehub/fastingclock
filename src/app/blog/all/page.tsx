@@ -14,14 +14,14 @@ export const metadata = {
         url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
         width: 1200,
         height: 240,
-        alt: "Fasting Clock Blog - All Posts",
+        alt: "Free Fasting Timer Posts - FastingClock.com",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "All Posts | Fasting Clock Blog",
-    description: "Browse all our intermittent fasting tips, guides, and health insights. Complete archive of articles on fasting, nutrition, and wellness.",
+    title: "Free Fasting Timer Posts | FastingClock.com",
+    description: "Explore our complete collection of free fasting timer tips and fasting clock guides. Comprehensive articles on intermittent fasting—browse all posts today!",
     images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
   },
 };

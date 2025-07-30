@@ -3,6 +3,26 @@ import Link from "next/link";
 export const metadata = {
   title: "Free Fasting Timer Tips | FastingClock.com",
   description: "Unlock intermittent fasting success with our free fasting timer insights and fasting clock strategies. Expert tips for better health—start learning today!",
+  openGraph: {
+    title: "Free Fasting Timer Tips | FastingClock.com",
+    description: "Unlock intermittent fasting success with our free fasting timer insights and fasting clock strategies. Expert tips for better health—start learning today!",
+    url: "https://fastingclock.com/blog",
+    type: "website",
+    images: [
+      {
+        url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
+        width: 1200,
+        height: 240,
+        alt: "Free Fasting Timer Tips - FastingClock.com",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Fasting Timer Tips | FastingClock.com",
+    description: "Unlock intermittent fasting success with our free fasting timer insights and fasting clock strategies. Expert tips for better health—start learning today!",
+    images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
+  },
 };
 
 interface BlogLayoutProps {
