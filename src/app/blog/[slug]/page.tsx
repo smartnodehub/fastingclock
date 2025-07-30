@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import StructuredData from "@/components/StructuredData";
+import { generateBreadcrumbSchema, generateArticleSchema } from "@/lib/structured-data";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -91,8 +93,31 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     });
   };
 
+  // Generate structured data for this post
+  const baseUrl = "https://fastingclock.com";
+  const postUrl = `${baseUrl}/blog/${slug}`;
+  const postImage = post.image ? `${baseUrl}${post.image}` : `${baseUrl}/fastingclock-logo-adsense-5to1.png`;
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://fastingclock.com" },
+    { name: "Blog", url: "https://fastingclock.com/blog" },
+    { name: post.title, url: postUrl }
+  ]);
+
+  const articleSchema = generateArticleSchema({
+    headline: post.title,
+    description: post.excerpt || post.description || post.title,
+    image: postImage,
+    author: "FastingClock Team",
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    canonicalUrl: postUrl
+  });
+
   return (
-    <article className="max-w-3xl mx-auto">
+    <>
+      <StructuredData data={[breadcrumbSchema, articleSchema]} />
+      <article className="max-w-3xl mx-auto">
       {/* Post Header */}
       <header className="mb-8">
         <div className="mb-4">
@@ -133,5 +158,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </footer>
     </article>
+    </>
   );
 }

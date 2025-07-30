@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
+import StructuredData from "@/components/StructuredData";
+import { generateBreadcrumbSchema } from "@/lib/structured-data";
 
 export const metadata = {
   title: "Free Fasting Timer Posts | FastingClock.com",
@@ -39,6 +41,13 @@ export const metadata = {
   },
 };
 
+// Generate breadcrumb schema for all posts page
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Home", url: "https://fastingclock.com" },
+  { name: "Blog", url: "https://fastingclock.com/blog" },
+  { name: "All Posts", url: "https://fastingclock.com/blog/all" }
+]);
+
 export default function AllPostsPage() {
   // Get all posts (already sorted by date)
   const sortedPosts = getAllPosts();
@@ -52,7 +61,9 @@ export default function AllPostsPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <div className="max-w-4xl mx-auto">
       {/* Header */}
       <div className="mb-8">
         <Link 
@@ -120,5 +131,6 @@ export default function AllPostsPage() {
         </Link>
       </div>
     </div>
+    </>
   );
 }

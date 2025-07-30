@@ -1,4 +1,6 @@
 import BlogList from "@/components/BlogList";
+import StructuredData from "@/components/StructuredData";
+import { generateBreadcrumbSchema } from "@/lib/structured-data";
 
 export const metadata = {
   title: "Free Fasting Timer Blog | FastingClock.com",
@@ -38,17 +40,26 @@ export const metadata = {
   },
 };
 
+// Generate breadcrumb schema for blog page
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Home", url: "https://fastingclock.com" },
+  { name: "Blog", url: "https://fastingclock.com/blog" }
+]);
+
 export default function BlogPage() {
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Latest from the Fasting Clock Blog</h1>
-        <p className="text-gray-300 text-lg">
-          Discover tips, insights, and guides to help you succeed with intermittent fasting
-        </p>
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Latest from the Fasting Clock Blog</h1>
+          <p className="text-gray-300 text-lg">
+            Discover tips, insights, and guides to help you succeed with intermittent fasting
+          </p>
+        </div>
+        
+        <BlogList />
       </div>
-      
-      <BlogList />
-    </div>
+    </>
   );
 }

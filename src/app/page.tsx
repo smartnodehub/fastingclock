@@ -5,7 +5,14 @@ import TimerForm     from "@/components/TimerForm";
 import ResourceLinks from "@/components/ResourceLinks";
 import BenefitList   from "@/components/BenefitList";
 import FAQ           from "@/components/FAQ";
+import StructuredData from "@/components/StructuredData";
 import { content }   from "@/content/content.en";
+import { 
+  generateBreadcrumbSchema, 
+  generateWebsiteSchema, 
+  generateOrganizationSchema,
+  generateFAQSchema 
+} from "@/lib/structured-data";
 
 export const metadata = {
   title:       "Free Fasting Timer & Clock | FastingClock.com",
@@ -45,15 +52,27 @@ export const metadata = {
   },
 };
 
+// Generate structured data for homepage
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Home", url: "https://fastingclock.com" }
+]);
+
+const websiteSchema = generateWebsiteSchema();
+const organizationSchema = generateOrganizationSchema();
+const faqSchema = generateFAQSchema(content.faqItems);
+
 export default function HomePage() {
   return (
-    <main className="bg-gray-900 text-white">
-      <Header />
-      <TimerForm />
-      <ResourceLinks />
-      <IntroSection text={content.intro16to8} />
-      <BenefitList items={content.benefits} />
-      <FAQ items={content.faqItems} />
-    </main>
+    <>
+      <StructuredData data={[breadcrumbSchema, websiteSchema, organizationSchema, faqSchema]} />
+      <main className="bg-gray-900 text-white">
+        <Header />
+        <TimerForm />
+        <ResourceLinks />
+        <IntroSection text={content.intro16to8} />
+        <BenefitList items={content.benefits} />
+        <FAQ items={content.faqItems} />
+      </main>
+    </>
   );
 }
