@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fasting Clock – Intermittent Fasting Timer",
+  title: "Free Fasting Timer & Tracker | FastingClock.com",
   description: "Track your fasting and eating windows easily.",
   verification: {
     google: "JX76zFCjhtttG2yEJ7AyLaHu-nLIN5oRB_KSSPQQlxc",

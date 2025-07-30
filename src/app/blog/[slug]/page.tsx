@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   const postImage = post.image ? `${baseUrl}${post.image}` : `${baseUrl}/fastingclock-logo-adsense-5to1.png`;
 
   return {
-    title: `${post.title} | Fasting Clock Blog`,
+    title: `${post.title} | FastingClock.com`,
     description: post.excerpt || post.description,
     openGraph: {
       title: post.title,

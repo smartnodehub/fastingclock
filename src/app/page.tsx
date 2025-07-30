@@ -8,7 +8,7 @@ import FAQ           from "@/components/FAQ";
 import { content }   from "@/content/content.en";
 
 export const metadata = {
-  title:       "Fasting Clock – 16:8 Fasting Guide",
+  title:       "Free Fasting Timer & Clock | FastingClock.com",
   description: "Learn the benefits of 16:8 fasting and track your fast with Fasting Clock",
 };
 

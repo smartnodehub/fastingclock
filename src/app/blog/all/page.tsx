@@ -2,10 +2,10 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata = {
-  title: "All Posts | Fasting Clock Blog",
+  title: "Free Fasting Timer Posts | FastingClock.com",
   description: "Browse all our intermittent fasting tips, guides, and health insights. Complete archive of articles on fasting, nutrition, and wellness.",
   openGraph: {
-    title: "All Posts | Fasting Clock Blog",
+    title: "Free Fasting Timer Posts | FastingClock.com",
     description: "Browse all our intermittent fasting tips, guides, and health insights. Complete archive of articles on fasting, nutrition, and wellness.",
     url: "https://fastingclock.com/blog/all",
     type: "website",

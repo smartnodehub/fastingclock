@@ -1,10 +1,10 @@
 import BlogList from "@/components/BlogList";
 
 export const metadata = {
-  title: "Blog – Fasting Clock",
+  title: "Free Fasting Timer Blog | FastingClock.com",
   description: "Latest articles on intermittent fasting, nutrition, and wellness. Discover expert tips, science-backed insights, and practical guides for your health journey.",
   openGraph: {
-    title: "Blog – Fasting Clock",
+    title: "Free Fasting Timer Blog | FastingClock.com",
     description: "Latest articles on intermittent fasting, nutrition, and wellness. Discover expert tips, science-backed insights, and practical guides for your health journey.",
     url: "https://fastingclock.com/blog",
     type: "website",
