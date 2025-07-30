@@ -11,7 +11,7 @@ export interface BlogPost {
 export const post: BlogPost = {
   title: "Getting Started with 16:8 Intermittent Fasting",
   date: "2025-07-29",
-  excerpt: "Learn the basics of 16:8 intermittent fasting and how to start your journey towards better health.",
+  excerpt: "Master 16:8 intermittent fasting with our free fasting timer and expert fasting clock guidance. Beginner-friendly tips for sustainable weight loss—start today!",
   slug: "getting-started-16-8-intermittent-fasting",
   author: "Fasting Clock Team",
   readTime: "5 min read",

@@ -2,10 +2,10 @@ import BlogList from "@/components/BlogList";
 
 export const metadata = {
   title: "Free Fasting Timer Blog | FastingClock.com",
-  description: "Latest articles on intermittent fasting, nutrition, and wellness. Discover expert tips, science-backed insights, and practical guides for your health journey.",
+  description: "Master intermittent fasting with our free fasting timer guides and fasting clock tips. Expert advice, proven strategies, and practical insights—start reading now!",
   openGraph: {
     title: "Free Fasting Timer Blog | FastingClock.com",
-    description: "Latest articles on intermittent fasting, nutrition, and wellness. Discover expert tips, science-backed insights, and practical guides for your health journey.",
+    description: "Master intermittent fasting with our free fasting timer guides and fasting clock tips. Expert advice, proven strategies, and practical insights—start reading now!",
     url: "https://fastingclock.com/blog",
     type: "website",
     images: [

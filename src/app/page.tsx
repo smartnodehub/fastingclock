@@ -9,7 +9,7 @@ import { content }   from "@/content/content.en";
 
 export const metadata = {
   title:       "Free Fasting Timer & Clock | FastingClock.com",
-  description: "Learn the benefits of 16:8 fasting and track your fast with Fasting Clock",
+  description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
 };
 
 export default function HomePage() {

@@ -3,10 +3,10 @@ import { getAllPosts } from "@/lib/blog";
 
 export const metadata = {
   title: "Free Fasting Timer Posts | FastingClock.com",
-  description: "Browse all our intermittent fasting tips, guides, and health insights. Complete archive of articles on fasting, nutrition, and wellness.",
+  description: "Explore our complete collection of free fasting timer tips and fasting clock guides. Comprehensive articles on intermittent fasting—browse all posts today!",
   openGraph: {
     title: "Free Fasting Timer Posts | FastingClock.com",
-    description: "Browse all our intermittent fasting tips, guides, and health insights. Complete archive of articles on fasting, nutrition, and wellness.",
+    description: "Explore our complete collection of free fasting timer tips and fasting clock guides. Comprehensive articles on intermittent fasting—browse all posts today!",
     url: "https://fastingclock.com/blog/all",
     type: "website",
     images: [

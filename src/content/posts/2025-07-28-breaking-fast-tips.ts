@@ -11,7 +11,7 @@ export interface BlogPost {
 export const post: BlogPost = {
   title: "5 Tips for Breaking Your Fast Properly",
   date: "2025-07-28",
-  excerpt: "Discover the best practices for breaking your intermittent fast to maximize benefits and avoid digestive issues.",
+  excerpt: "Break your fast safely with our free fasting timer insights and fasting clock tips. Expert advice for maximum benefits and better digestion—learn more today!",
   slug: "5-tips-breaking-fast-properly",
   author: "Fasting Clock Team",
   readTime: "4 min read",

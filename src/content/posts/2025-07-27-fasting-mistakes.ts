@@ -11,7 +11,7 @@ export interface BlogPost {
 export const post: BlogPost = {
   title: "Common Intermittent Fasting Mistakes and How to Avoid Them",
   date: "2025-07-27",
-  excerpt: "Learn about the most common pitfalls in intermittent fasting and practical strategies to overcome them.",
+  excerpt: "Avoid fasting pitfalls with our free fasting timer strategies and smart fasting clock techniques. Expert tips for intermittent fasting success—read more now!",
   slug: "common-intermittent-fasting-mistakes",
   author: "Fasting Clock Team", 
   readTime: "6 min read",

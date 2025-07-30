@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Free Fasting Timer Tips | FastingClock.com",
-  description: "Discover the latest fasting tips, health insights, and intermittent fasting guides on the Fasting Clock blog.",
+  description: "Unlock intermittent fasting success with our free fasting timer insights and fasting clock strategies. Expert tips for better health—start learning today!",
 };
 
 interface BlogLayoutProps {
