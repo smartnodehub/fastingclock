@@ -31,6 +31,9 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   const postUrl = `${baseUrl}/blog/${slug}`;
   const postImage = post.image ? `${baseUrl}${post.image}` : `${baseUrl}/fastingclock-logo-adsense-5to1.png`;
 
+  // Convert date to ISO format for publishedTime
+  const publishedTime = new Date(post.date).toISOString();
+
   return {
     title: `${post.title} | FastingClock.com`,
     description: post.excerpt || post.description,
@@ -39,7 +42,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       description: post.excerpt || post.description,
       url: postUrl,
       type: "article",
-      publishedTime: post.date,
+      publishedTime: publishedTime,
       authors: [post.author || "Fasting Clock Team"],
       images: [
         {
@@ -54,7 +57,10 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       card: "summary_large_image",
       title: `${post.title} | FastingClock.com`,
       description: post.excerpt || post.description,
-      images: [postImage],
+      images: {
+        url: postImage,
+        alt: post.title,
+      },
     },
   };
 }

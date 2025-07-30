@@ -36,7 +36,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free Fasting Timer & Tracker | FastingClock.com",
     description: "Easily track your fasting with our free fasting timer and sleek fasting clock. Stay on schedule, improve health, and never miss a window—start tracking today!",
-    images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
+    images: {
+      url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
+      alt: "Free Fasting Timer & Tracker - FastingClock.com",
+    },
   },
 };
 

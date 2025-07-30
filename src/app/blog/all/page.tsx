@@ -22,7 +22,10 @@ export const metadata = {
     card: "summary_large_image",
     title: "Free Fasting Timer Posts | FastingClock.com",
     description: "Explore our complete collection of free fasting timer tips and fasting clock guides. Comprehensive articles on intermittent fasting—browse all posts today!",
-    images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
+    images: {
+      url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
+      alt: "Free Fasting Timer Posts - FastingClock.com",
+    },
   },
 };
 

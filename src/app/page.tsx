@@ -28,7 +28,10 @@ export const metadata = {
     card: "summary_large_image",
     title: "Free Fasting Timer & Clock | FastingClock.com",
     description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
-    images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
+    images: {
+      url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
+      alt: "Free Fasting Timer & Clock - FastingClock.com",
+    },
   },
 };
 

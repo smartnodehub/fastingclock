@@ -21,7 +21,10 @@ export const metadata = {
     card: "summary_large_image",
     title: "Free Fasting Timer Tips | FastingClock.com",
     description: "Unlock intermittent fasting success with our free fasting timer insights and fasting clock strategies. Expert tips for better health—start learning today!",
-    images: ["https://fastingclock.com/fastingclock-logo-adsense-5to1.png"],
+    images: {
+      url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
+      alt: "Free Fasting Timer Tips - FastingClock.com",
+    },
   },
 };
 
