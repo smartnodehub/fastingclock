@@ -24,12 +24,24 @@ const Header: FC = () => {
         </div>
 
         {/* Navigation */}
-        <nav className="flex items-center justify-center">
+        <nav className="flex items-center justify-center space-x-2 md:space-x-4">
+          <Link 
+            href="/" 
+            className="text-blue-200 hover:text-yellow-400 transition-colors text-sm md:text-lg font-medium px-3 md:px-6 py-2 rounded-lg hover:bg-blue-800"
+          >
+            Free Fasting Timer
+          </Link>
           <Link 
             href="/blog" 
-            className="text-blue-200 hover:text-yellow-400 transition-colors text-lg font-medium px-6 py-2 rounded-lg hover:bg-blue-800"
+            className="text-blue-200 hover:text-yellow-400 transition-colors text-sm md:text-lg font-medium px-3 md:px-6 py-2 rounded-lg hover:bg-blue-800"
           >
             Blog
+          </Link>
+          <Link 
+            href="/blog/all" 
+            className="text-blue-200 hover:text-yellow-400 transition-colors text-sm md:text-lg font-medium px-3 md:px-6 py-2 rounded-lg hover:bg-blue-800"
+          >
+            All Posts
           </Link>
         </nav>
       </div>

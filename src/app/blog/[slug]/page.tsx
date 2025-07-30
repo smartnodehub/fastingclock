@@ -146,6 +146,31 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: post.body }}
       />
 
+      {/* Call-to-Action Section */}
+      <section className="my-12 p-6 bg-blue-900 rounded-lg border border-blue-800">
+        <div className="text-center">
+          <h3 className="text-xl font-bold text-white mb-3">Ready to Start Your Fasting Journey?</h3>
+          <p className="text-blue-100 mb-4">
+            Put what you&apos;ve learned into practice with our <Link href="/" className="text-yellow-400 hover:text-yellow-300 underline font-medium">free fasting timer</Link>. 
+            Track your progress and stay motivated with our intuitive <Link href="/" className="text-yellow-400 hover:text-yellow-300 underline font-medium">fasting clock</Link>.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link 
+              href="/" 
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-lg transition-colors"
+            >
+              Start Free Fasting Timer
+            </Link>
+            <Link 
+              href="/blog" 
+              className="inline-block bg-gray-700 hover:bg-gray-600 text-white font-medium px-6 py-3 rounded-lg transition-colors"
+            >
+              Read More Fasting Tips
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Post Footer */}
       <footer className="mt-12 pt-8 border-t border-gray-700">
         <div className="text-center">

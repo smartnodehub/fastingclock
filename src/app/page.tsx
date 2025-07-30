@@ -1,4 +1,5 @@
 // File: src/app/page.tsx
+import Link from "next/link";
 import Header        from "@/components/Header";
 import IntroSection  from "@/components/IntroSection";
 import TimerForm     from "@/components/TimerForm";
@@ -69,6 +70,23 @@ export default function HomePage() {
         <Header />
         <TimerForm />
         <ResourceLinks />
+        
+        {/* Call-to-Action Section */}
+        <section className="py-8 px-4 bg-blue-900 text-center">
+          <h2 className="text-2xl font-bold mb-4">Master Intermittent Fasting with Expert Guidance</h2>
+          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            Explore our comprehensive collection of <Link href="/blog" className="text-yellow-400 hover:text-yellow-300 underline">intermittent fasting guides</Link> and expert tips. 
+            Learn everything from <Link href="/blog/getting-started-16-8-intermittent-fasting" className="text-yellow-400 hover:text-yellow-300 underline">16:8 fasting basics</Link> to 
+            advanced strategies with our <Link href="/blog/best-fasting-apps-2025" className="text-yellow-400 hover:text-yellow-300 underline">recommended fasting apps</Link>.
+          </p>
+          <Link 
+            href="/blog" 
+            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-lg transition-colors"
+          >
+            Explore Fasting Tips & Guides
+          </Link>
+        </section>
+        
         <IntroSection text={content.intro16to8} />
         <BenefitList items={content.benefits} />
         <FAQ items={content.faqItems} />

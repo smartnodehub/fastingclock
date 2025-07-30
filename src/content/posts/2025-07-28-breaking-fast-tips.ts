@@ -16,10 +16,10 @@ export const post: BlogPost = {
   author: "Fasting Clock Team",
   readTime: "4 min read",
   body: `
-    <p>How you break your fast is just as important as the fast itself. Breaking your fast properly can help you maintain energy levels, support digestion, and maximize the benefits of intermittent fasting.</p>
+    <p>How you break your fast is just as important as the fast itself. Breaking your fast properly can help you maintain energy levels, support digestion, and maximize the benefits of intermittent fasting. To time your eating windows perfectly, use our <a href="/" class="text-yellow-400 hover:text-yellow-300 underline">free fasting timer</a> to track when your fast ends.</p>
     
     <h2>1. Start with Something Light</h2>
-    <p>Don't jump straight into a heavy meal. Begin with something gentle on your digestive system like a piece of fruit, a small salad, or some nuts.</p>
+    <p>Don't jump straight into a heavy meal. Begin with something gentle on your digestive system like a piece of fruit, a small salad, or some nuts. Our <a href="/" class="text-yellow-400 hover:text-yellow-300 underline">fasting clock</a> will help you plan the perfect timing for your first meal.</p>
     
     <h2>2. Hydrate First</h2>
     <p>Before eating, drink a glass of water. This helps prepare your digestive system and can prevent overeating.</p>
@@ -33,6 +33,6 @@ export const post: BlogPost = {
     <h2>5. Eat Mindfully</h2>
     <p>Take your time and chew slowly. This helps with digestion and allows you to recognize hunger and fullness cues.</p>
     
-    <p>Remember, the goal is to ease back into eating and maintain the positive effects of your fast.</p>
+    <p>Remember, the goal is to ease back into eating and maintain the positive effects of your fast. If you're just starting your intermittent fasting journey, check out our <a href="/blog/getting-started-16-8-intermittent-fasting" class="text-yellow-400 hover:text-yellow-300 underline">beginner's guide to 16:8 fasting</a> for comprehensive tips.</p>
   `
 };

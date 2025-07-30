@@ -1,6 +1,7 @@
 import BlogList from "@/components/BlogList";
 import StructuredData from "@/components/StructuredData";
 import { generateBreadcrumbSchema } from "@/lib/structured-data";
+import Link from "next/link";
 
 export const metadata = {
   title: "Free Fasting Timer Blog | FastingClock.com",
@@ -53,9 +54,15 @@ export default function BlogPage() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Latest from the Fasting Clock Blog</h1>
-          <p className="text-gray-300 text-lg">
+          <p className="text-gray-300 text-lg mb-6">
             Discover tips, insights, and guides to help you succeed with intermittent fasting
           </p>
+          <Link 
+            href="/" 
+            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-lg transition-colors"
+          >
+            Start Your Fast Now - Free Timer
+          </Link>
         </div>
         
         <BlogList />
