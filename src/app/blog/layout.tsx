@@ -3,6 +3,16 @@ import Link from "next/link";
 export const metadata = {
   title: "Free Fasting Timer Tips | FastingClock.com",
   description: "Unlock intermittent fasting success with our free fasting timer insights and fasting clock strategies. Expert tips for better health—start learning today!",
+  alternates: {
+    canonical: "https://fastingclock.com/blog",
+    languages: {
+      "en": "https://fastingclock.com/en/blog",
+      "es": "https://fastingclock.com/es/blog",
+      "de": "https://fastingclock.com/de/blog",
+      "fi": "https://fastingclock.com/fi/blog",
+      "x-default": "https://fastingclock.com/blog",
+    },
+  },
   openGraph: {
     title: "Free Fasting Timer Tips | FastingClock.com",
     description: "Unlock intermittent fasting success with our free fasting timer insights and fasting clock strategies. Expert tips for better health—start learning today!",

@@ -4,6 +4,16 @@ import { getAllPosts } from "@/lib/blog";
 export const metadata = {
   title: "Free Fasting Timer Posts | FastingClock.com",
   description: "Explore our complete collection of free fasting timer tips and fasting clock guides. Comprehensive articles on intermittent fasting—browse all posts today!",
+  alternates: {
+    canonical: "https://fastingclock.com/blog/all",
+    languages: {
+      "en": "https://fastingclock.com/en/blog/all",
+      "es": "https://fastingclock.com/es/blog/all",
+      "de": "https://fastingclock.com/de/blog/all",
+      "fi": "https://fastingclock.com/fi/blog/all",
+      "x-default": "https://fastingclock.com/blog/all",
+    },
+  },
   openGraph: {
     title: "Free Fasting Timer Posts | FastingClock.com",
     description: "Explore our complete collection of free fasting timer tips and fasting clock guides. Comprehensive articles on intermittent fasting—browse all posts today!",

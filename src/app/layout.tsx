@@ -18,6 +18,16 @@ export const metadata: Metadata = {
   verification: {
     google: "JX76zFCjhtttG2yEJ7AyLaHu-nLIN5oRB_KSSPQQlxc",
   },
+  alternates: {
+    canonical: "https://fastingclock.com",
+    languages: {
+      "en": "https://fastingclock.com/en",
+      "es": "https://fastingclock.com/es",
+      "de": "https://fastingclock.com/de",
+      "fi": "https://fastingclock.com/fi",
+      "x-default": "https://fastingclock.com",
+    },
+  },
   openGraph: {
     title: "Free Fasting Timer & Tracker | FastingClock.com",
     description: "Easily track your fasting with our free fasting timer and sleek fasting clock. Stay on schedule, improve health, and never miss a window—start tracking today!",
