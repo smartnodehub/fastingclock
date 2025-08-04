@@ -45,22 +45,26 @@ jobs:
           
       - name: Verify deployment is accessible
         run: |
-          max_attempts=5
+          max_attempts=12  # max 4 min (12 x 20s)
           attempt=1
+          url="https://fastingtimer-c9eq-git-main-mell-siins-projects-e68b4a9a.vercel.app"
+
+          echo "🌐 Checking deployment accessibility at: $url"
+
           while [ $attempt -le $max_attempts ]; do
-            echo "Attempt $attempt: Testing if site is accessible..."
-            if curl -f -s "${{ steps.vercel-deploy.outputs.preview-url }}" > /dev/null; then
-              echo "✅ Site is accessible"
+            echo "⏳ Attempt $attempt: Testing if site is accessible..."
+            if curl -s --head --fail "$url" > /dev/null; then
+              echo "✅ Site is accessible!"
               break
             else
-              echo "❌ Site not accessible yet, waiting..."
-              sleep 15
+              echo "❌ Site not accessible yet. Waiting 20s..."
+              sleep 20
               attempt=$((attempt + 1))
             fi
           done
-          
+
           if [ $attempt -gt $max_attempts ]; then
-            echo "❌ Site not accessible after $max_attempts attempts"
+            echo "❌ ERROR: Site not accessible after $max_attempts attempts"
             exit 1
           fi
 
