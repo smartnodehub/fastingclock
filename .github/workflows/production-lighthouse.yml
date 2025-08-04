@@ -27,7 +27,7 @@ jobs:
           set -e
           max_attempts=12  # 4 minutes
           attempt=1
-          url="https://www.fastingclock.com"
+          url="https://fastingclock.com"
 
           echo "🌐 Verifying production is live at $url..."
 
@@ -55,8 +55,8 @@ jobs:
           temporaryPublicStorage: true
           uploadArtifacts: true
           urls: |
-            https://www.fastingclock.com
-            https://www.fastingclock.com/blog
-            https://www.fastingclock.com/privacy
+            https://fastingclock.com
+            https://fastingclock.com/blog
+            https://fastingclock.com/privacy
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
