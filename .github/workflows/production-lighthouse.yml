@@ -1,0 +1,62 @@
+name: Lighthouse CI – Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lighthouse-production:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Wait for production deployment
+        run: |
+          set -e
+          max_attempts=12  # 4 minutes
+          attempt=1
+          url="https://www.fastingclock.com"
+
+          echo "🌐 Verifying production is live at $url..."
+
+          while [ $attempt -le $max_attempts ]; do
+            echo "⏳ Attempt $attempt of $max_attempts"
+            if curl --head --fail --max-time 10 "$url" > /dev/null; then
+              echo "✅ Production site is accessible!"
+              break
+            else
+              echo "❌ Not accessible yet. Retrying in 20s..."
+              sleep 20
+              attempt=$((attempt + 1))
+            fi
+          done
+
+          if [ $attempt -gt $max_attempts ]; then
+            echo "❌ ERROR: Production site not accessible after $max_attempts attempts"
+            exit 1
+          fi
+
+      - name: Run Lighthouse CI on Production
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: './lighthouserc.json'
+          temporaryPublicStorage: true
+          uploadArtifacts: true
+          urls: |
+            https://www.fastingclock.com
+            https://www.fastingclock.com/blog
+            https://www.fastingclock.com/privacy
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
