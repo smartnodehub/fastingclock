@@ -42,22 +42,26 @@ jobs:
           echo "Waiting for deployment to be ready..."
           echo "Preview URL: ${{ steps.vercel-deploy.outputs.preview-url }}"
           sleep 45
+
+      - name: Debug Preview URL
+        run: |
+          echo "Preview URL: ${{ steps.vercel-deploy.outputs.preview-url }}"
           
       - name: Verify deployment is accessible
         run: |
-          max_attempts=12  # max 4 min (12 x 20s)
+          max_attempts=12  # 12 x 20s = 4 min
           attempt=1
-          url="https://fastingtimer-c9eq-git-main-mell-siins-projects-e68b4a9a.vercel.app"
-
+          url="${{ steps.vercel-deploy.outputs.preview-url }}"
+          
           echo "🌐 Checking deployment accessibility at: $url"
-
+          
           while [ $attempt -le $max_attempts ]; do
-            echo "⏳ Attempt $attempt: Testing if site is accessible..."
+            echo "⏳ Attempt $attempt: Checking $url ..."
             if curl -s --head --fail "$url" > /dev/null; then
               echo "✅ Site is accessible!"
               break
             else
-              echo "❌ Site not accessible yet. Waiting 20s..."
+              echo "❌ Still waiting for site. Sleeping 20s..."
               sleep 20
               attempt=$((attempt + 1))
             fi
