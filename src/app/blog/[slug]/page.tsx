@@ -42,13 +42,6 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     description: post.excerpt || post.description,
     alternates: {
       canonical: postUrl,
-      languages: {
-        "en": `${baseUrl}/en/blog/${slug}`,
-        "es": `${baseUrl}/es/blog/${slug}`,
-        "de": `${baseUrl}/de/blog/${slug}`,
-        "fi": `${baseUrl}/fi/blog/${slug}`,
-        "x-default": postUrl,
-      },
     },
     openGraph: {
       title: `${post.title} | FastingClock.com`,

@@ -17,6 +17,11 @@
       ],
       "destination": "https://fastingclock.com/:1",
       "permanent": true
+    },
+    {
+      "source": "/(fi|de|es|en)(.*)",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
