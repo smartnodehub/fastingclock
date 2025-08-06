@@ -15,12 +15,12 @@
           "value": "www.fastingclock.com"
         }
       ],
-      "destination": "https://fastingclock.com/:1",
+      "destination": "https://fastingclock.com/$1",
       "permanent": true
     },
     {
-      "source": "/(fi|de|es|en)(.*)",
-      "destination": "/",
+      "source": "/(fi|de|es|en)/:path*",
+      "destination": "/:path*",
       "permanent": true
     }
   ]

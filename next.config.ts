@@ -17,6 +17,14 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
 
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+
+  // Output configuration
+  output: 'standalone',
+
   // Headers for caching and security
   async headers() {
     return [
@@ -35,10 +43,36 @@ const nextConfig: NextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
         ],
       },
       {
         source: '/fasting-clock-logo.svg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*\\.(js|css|svg|png|jpg|jpeg|gif|webp|avif|woff|woff2|ttf|eot)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',

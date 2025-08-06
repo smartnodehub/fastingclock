@@ -231,7 +231,7 @@ const TimerForm: FC = () => {
             className={`px-8 py-3 rounded-lg font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 ${
               isFormValid 
                 ? "bg-yellow-400 text-black hover:bg-yellow-300 cursor-pointer" 
-                : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                : "bg-slate-600 text-gray-200 cursor-not-allowed"
             }`}
             type="button"
           >
@@ -240,7 +240,7 @@ const TimerForm: FC = () => {
           {(result || isCountdownActive) && (
             <button 
               onClick={handleReset}
-              className="px-6 py-3 rounded-lg font-bold bg-gray-700 text-white hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400/50"
+              className="px-6 py-3 rounded-lg font-bold bg-slate-700 text-white hover:bg-slate-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400/50"
               type="button"
             >
               Reset

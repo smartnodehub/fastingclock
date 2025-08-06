@@ -5,7 +5,7 @@ import { FC } from "react";
 
 const Footer: FC = () => {
   return (
-    <footer className="bg-gray-800 border-t border-gray-700 mt-16">
+    <footer className="bg-slate-900 border-t border-slate-700 mt-16">
       <div className="container mx-auto px-4 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -21,10 +21,10 @@ const Footer: FC = () => {
               />
               <h3 className="text-xl font-bold text-white">FastingClock.com</h3>
             </div>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-200 text-sm mb-4">
               Your free fasting timer and intermittent fasting companion. Track your fasting journey with our intuitive fasting clock and discover the benefits of time-restricted eating.
             </p>
-            <p className="text-gray-500 text-xs">
+            <p className="text-gray-300 text-xs">
               Start your intermittent fasting journey today with our completely free tools and expert guidance.
             </p>
           </div>
@@ -34,22 +34,22 @@ const Footer: FC = () => {
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm">
+                <Link href="/" className="text-gray-200 hover:text-yellow-400 transition-colors text-sm">
                   Free Fasting Timer
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm">
+                <Link href="/blog" className="text-gray-200 hover:text-yellow-400 transition-colors text-sm">
                   Fasting Blog
                 </Link>
               </li>
               <li>
-                <Link href="/blog/all" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm">
+                <Link href="/blog/all" className="text-gray-200 hover:text-yellow-400 transition-colors text-sm">
                   All Articles
                 </Link>
               </li>
               <li>
-                <Link href="/blog/getting-started-16-8-intermittent-fasting" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm">
+                <Link href="/blog/getting-started-16-8-intermittent-fasting" className="text-gray-200 hover:text-yellow-400 transition-colors text-sm">
                   Getting Started Guide
                 </Link>
               </li>
@@ -61,22 +61,22 @@ const Footer: FC = () => {
             <h4 className="text-white font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/blog/best-fasting-apps-2025" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm">
+                <Link href="/blog/best-fasting-apps-2025" className="text-gray-200 hover:text-yellow-400 transition-colors text-sm">
                   Best Fasting Apps
                 </Link>
               </li>
               <li>
-                <Link href="/blog/5-tips-breaking-fast-properly" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm">
+                <Link href="/blog/5-tips-breaking-fast-properly" className="text-gray-200 hover:text-yellow-400 transition-colors text-sm">
                   Breaking Your Fast
                 </Link>
               </li>
               <li>
-                <a href="https://www.healthline.com/nutrition/intermittent-fasting-guide" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm">
+                <a href="https://www.healthline.com/nutrition/intermittent-fasting-guide" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-yellow-400 transition-colors text-sm">
                   Healthline Fasting Guide
                 </a>
               </li>
               <li>
-                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6627766/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm">
+                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6627766/" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-yellow-400 transition-colors text-sm">
                   Research on Fasting
                 </a>
               </li>
@@ -85,23 +85,23 @@ const Footer: FC = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-gray-700 pt-8">
+        <div className="border-t border-slate-600 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-wrap gap-4 text-sm">
-              <Link href="/privacy" className="text-gray-400 hover:text-yellow-400 transition-colors">
+              <Link href="/privacy" className="text-gray-200 hover:text-yellow-400 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-yellow-400 transition-colors">
+              <Link href="/terms" className="text-gray-200 hover:text-yellow-400 transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/contact" className="text-gray-400 hover:text-yellow-400 transition-colors">
+              <Link href="/contact" className="text-gray-200 hover:text-yellow-400 transition-colors">
                 Contact
               </Link>
-              <Link href="/sitemap.xml" className="text-gray-400 hover:text-yellow-400 transition-colors">
+              <Link href="/sitemap.xml" className="text-gray-200 hover:text-yellow-400 transition-colors">
                 Sitemap
               </Link>
             </div>
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-300 text-sm">
               © 2025 FastingClock.com - Free Fasting Timer & Clock
             </p>
           </div>

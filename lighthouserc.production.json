@@ -1,0 +1,72 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 1,
+      "settings": {
+        "chromeFlags": "--no-sandbox --disable-dev-shm-usage --disable-background-timer-throttling --disable-renderer-backgrounding",
+        "preset": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "cpuSlowdownMultiplier": 1,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0
+        },
+        "formFactor": "desktop",
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        }
+      }
+    },
+    "assert": {
+      "preset": "lighthouse:no-pwa",
+      "assertions": {
+        "categories:performance": ["warn", {"minScore": 0.7}],
+        "categories:accessibility": ["warn", {"minScore": 0.8}],
+        "categories:best-practices": ["warn", {"minScore": 0.7}],
+        "categories:seo": ["error", {"minScore": 0.9}],
+        
+        "first-contentful-paint": ["warn", {"maxNumericValue": 3000}],
+        "largest-contentful-paint": ["warn", {"maxNumericValue": 4000}],
+        "cumulative-layout-shift": ["error", {"maxNumericValue": 0.15}],
+        "speed-index": ["warn", {"maxNumericValue": 5000}],
+        
+        "uses-text-compression": "warn",
+        "unused-css-rules": "off",
+        "unused-javascript": "off",
+        "modern-image-formats": "warn",
+        "offscreen-images": "warn",
+        "render-blocking-resources": "off",
+        "unminified-css": "warn",
+        "unminified-javascript": "warn",
+        
+        "color-contrast": "off",
+        "image-alt": "error",
+        "label": "error",
+        "link-name": "error",
+        "meta-description": "error",
+        "document-title": "error",
+        
+        "redirects": "off",
+        "third-party-cookies": "off",
+        "legacy-javascript": "off",
+        "legacy-javascript-insight": "off",
+        "document-latency-insight": "off",
+        "inspector-issues": "off",
+        "lcp-discovery-insight": "off",
+        "cache-insight": "off",
+        "render-blocking-insight": "off",
+        "uses-long-cache-ttl": "off",
+        "first-input-delay": "off"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
