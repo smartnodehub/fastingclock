@@ -17,12 +17,11 @@ Sentry.init({
   debug: process.env.NODE_ENV === 'development',
   
   integrations: [
-    Sentry.replayIntegration({
-      // Additional SDK configuration goes in here, for example:
-      maskAllText: false,
-      blockAllMedia: false,
-    }),
-    // Web Vitals integration
+    // Removed Replay integration to avoid conflicts
+    // Sentry.replayIntegration({
+    //   maskAllText: false,
+    //   blockAllMedia: false,
+    // }),
     Sentry.browserTracingIntegration({
       // Tracing configuration removed - not supported in this SDK version
     }),
