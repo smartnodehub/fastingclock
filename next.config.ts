@@ -25,6 +25,24 @@ const nextConfig: NextConfig = {
   // Output configuration
   output: 'standalone',
 
+  // Redirects
+  async redirects() {
+    return [
+      // Handle www to non-www redirect
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.fastingclock.com',
+          },
+        ],
+        destination: 'https://fastingclock.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
   // Headers for caching and security
   async headers() {
     return [
