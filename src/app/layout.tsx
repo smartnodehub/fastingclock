@@ -7,6 +7,8 @@ import WebVitalsReporter from "@/components/WebVitalsReporter";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ErrorReporter from "@/components/ErrorReporter";
 import Image from "next/image";
+import AdSenseScript from '@/components/ads/AdSenseScript';
+import SidebarAds from '@/components/ads/SidebarAds';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -59,33 +61,34 @@ export const viewport = {
   maximumScale: 5,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // If you have consent, wire it here (e.g., from a context)
+  const consent = true;
+
   return (
     <html lang="en">
-      <head>
-        {/* Preload critical logo image */}
-        <link 
-          rel="preload" 
-          href="/fasting-clock-logo.svg" 
-          as="image" 
-          type="image/svg+xml"
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <AdSenseScript />
+
+        {/* Desktop sidebars (hidden on mobile via Tailwind) */}
+
+        <SidebarAds
+          leftSlotId="YOUR_LEFT_SLOT_ID"
+          rightSlotId="YOUR_RIGHT_SLOT_ID"
+          enabled={consent}
         />
 
-        {/* AdSense - deferred to avoid blocking rendering */}
-        <script
-          async
-          defer
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7058115116105378"
-          crossOrigin="anonymous"
-        ></script>
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        {/* Right sidebar AdSense ad (explicit, slot 4170947120) */}
+        <div className="hidden lg:block fixed right-3 top-1/2 -translate-y-1/2 z-40">
+          <ins className="adsbygoogle"
+               style={{ display: "block", width: "300px", height: "600px" }}
+               data-ad-client="ca-pub-7058115116105378"
+               data-ad-slot="4170947120"
+               data-ad-format="auto"
+               data-full-width-responsive="false"></ins>
+          <script dangerouslySetInnerHTML={{ __html: "(adsbygoogle = window.adsbygoogle || []).push({});" }} />
+        </div>
+
         <ErrorBoundary>
           {/* Logo priority load for LCP improvement */}
           <div style={{ display: "none" }}>

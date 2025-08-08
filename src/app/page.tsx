@@ -6,6 +6,7 @@ import IntroSection  from "@/components/IntroSection";
 import TimerForm     from "@/components/TimerForm";
 import ResourceLinks from "@/components/ResourceLinks";
 import StructuredData from "@/components/StructuredData";
+import MobileResponsiveAd from '@/components/ads/MobileResponsiveAd';
 import { content }   from "@/content/content.en";
 import { 
   generateBreadcrumbSchema, 
@@ -66,6 +67,7 @@ const organizationSchema = generateOrganizationSchema();
 const faqSchema = generateFAQSchema(content.faqItems);
 
 export default function HomePage() {
+  const consent = true;
   return (
     <>
       <StructuredData data={[breadcrumbSchema, websiteSchema, organizationSchema, faqSchema]} />
@@ -73,7 +75,6 @@ export default function HomePage() {
         <Header />
         <TimerForm />
         <ResourceLinks />
-        
         {/* Call-to-Action Section */}
         <section className="py-8 px-4 bg-blue-900 text-center">
           <h2 className="text-2xl font-bold mb-4">Master Intermittent Fasting with Expert Guidance</h2>
@@ -89,7 +90,10 @@ export default function HomePage() {
             Explore Fasting Tips & Guides
           </Link>
         </section>
-        
+
+        {/* Mobile Ad below hero/intro */}
+        <MobileResponsiveAd slotId="YOUR_MOBILE_SLOT_ID" enabled={consent} className="mt-4" />
+
         <IntroSection text={content.intro16to8} />
         <Suspense fallback={<div className="py-8 text-center text-gray-400">Loading benefits...</div>}>
           <BenefitList items={content.benefits} />
