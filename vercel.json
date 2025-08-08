@@ -5,18 +5,5 @@
       "src": "package.json",
       "use": "@vercel/next"
     }
-  ],
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.fastingclock.com"
-        }
-      ],
-      "destination": "https://fastingclock.com/:1",
-      "permanent": true
-    }
   ]
 }
