@@ -1,3 +1,13 @@
+        {/* Left sidebar AdSense ad (explicit, slot 8413444466) */}
+        <div className="hidden lg:block fixed left-3 top-1/2 -translate-y-1/2 z-40">
+          <ins className="adsbygoogle"
+               style={{ display: "block", width: "300px", height: "600px" }}
+               data-ad-client="ca-pub-7058115116105378"
+               data-ad-slot="8413444466"
+               data-ad-format="auto"
+               data-full-width-responsive="false"></ins>
+          <script dangerouslySetInnerHTML={{ __html: "(adsbygoogle = window.adsbygoogle || []).push({});" }} />
+        </div>
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
