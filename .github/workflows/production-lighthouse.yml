@@ -59,11 +59,9 @@ jobs:
       - name: Run Lighthouse CI on Production
         uses: treosh/lighthouse-ci-action@v12
         with:
-          configPath: './lighthouserc.production.json'
+          configPath: './lighthouserc.js'
+          runs: 1
           temporaryPublicStorage: true
           uploadArtifacts: true
-          urls: |
-            https://fastingclock.com
-            https://fastingclock.com/blog
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
