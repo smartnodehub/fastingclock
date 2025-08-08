@@ -47,6 +47,18 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: '/:path*.css',
+        headers: [
+          { key: 'Content-Type', value: 'text/css' }
+        ],
+      },
+      {
+        source: '/:path*.js',
+        headers: [
+          { key: 'Content-Type', value: 'application/javascript' }
+        ],
+      },
+      {
         source: '/:path*',
         headers: [
           {

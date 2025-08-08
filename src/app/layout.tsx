@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import WebVitalsReporter from "@/components/WebVitalsReporter";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ErrorReporter from "@/components/ErrorReporter";
+import Image from "next/image";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -65,28 +67,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preload critical assets for LCP */}
+        {/* Preload critical logo image */}
         <link 
           rel="preload" 
           href="/fasting-clock-logo.svg" 
           as="image" 
           type="image/svg+xml"
         />
-        <link 
-          rel="preload" 
-          href="https://fastingclock.com/fastingclock-logo-adsense-5to1.png" 
-          as="image" 
-          type="image/png"
-        />
-        {/* Preload critical fonts */}
-        <link 
-          rel="preload" 
-          href="/_next/static/css/app/globals.css"
-          as="style"
-        />
-        {/* AdSense */}
+
+        {/* AdSense - deferred to avoid blocking rendering */}
         <script
           async
+          defer
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7058115116105378"
           crossOrigin="anonymous"
         ></script>
@@ -95,6 +87,17 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ErrorBoundary>
+          {/* Logo priority load for LCP improvement */}
+          <div style={{ display: "none" }}>
+            <Image 
+              src="/fasting-clock-logo.svg"
+              alt="FastingClock Logo"
+              width={200}
+              height={50}
+              priority
+            />
+          </div>
+
           <GoogleAnalytics />
           <WebVitalsReporter />
           <ErrorReporter />
