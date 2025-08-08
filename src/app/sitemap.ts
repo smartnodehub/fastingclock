@@ -4,6 +4,11 @@ import { getAllPosts } from '@/lib/blog';
 
 const BASE_URL = 'https://fastingclock.com';
 
+type BlogPost = {
+  slug: string;
+  date: string | Date;
+};
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
@@ -15,8 +20,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
   ];
 
-  const posts = getAllPosts(); // [{ slug, date, ... }]
-  const postUrls: MetadataRoute.Sitemap = posts.map((post: any) => ({
+  const posts: BlogPost[] = getAllPosts();
+  const postUrls: MetadataRoute.Sitemap = posts.map((post: BlogPost) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'weekly',

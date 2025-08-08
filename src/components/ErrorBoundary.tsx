@@ -23,9 +23,10 @@ class ErrorBoundaryClass extends React.Component<ErrorBoundaryProps, ErrorBounda
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  componentDidCatch(_error: Error, errorInfo: React.ErrorInfo) {
     // Log error to Sentry
-    Sentry.captureException(error, {
+    Sentry.captureException(_error, {
       contexts: {
         react: {
           componentStack: errorInfo.componentStack,
