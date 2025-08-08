@@ -1,12 +1,11 @@
+
 import { getAllPosts } from '@/lib/blog';
 
 export default function sitemap() {
-  const baseUrl = 'https://www.fastingclock.com';
+  const baseUrl = 'https://fastingclock.com';
   const currentDate = new Date().toISOString();
-  
   // Get all blog posts
   const posts = getAllPosts();
-  
   // Create sitemap entries for blog posts
   const blogPosts = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
@@ -14,7 +13,6 @@ export default function sitemap() {
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
-
   return [
     {
       url: baseUrl,
