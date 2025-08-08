@@ -1,0 +1,75 @@
+* [33m4ac9d0b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update RootLayout: remove CSS preload, defer AdSense, priority logo image for LCP, preserve SEO meta
+* [33ma70d040[m Block /blog?q= in robots.txt to prevent indexing of search query URLs
+* [33ma6d296d[m Use strict types in sitemap.ts and suppress unused error lint in ErrorBoundary
+* [33m122889f[m Switch sitemap to App Router metadata-route variant (default export, MetadataRoute.Sitemap)
+* [33m97bfcbd[m Serve sitemap as XML with correct Content-Type header for Google Search Console
+* [33m7af703a[m Update sitemap generator to use apex domain (fastingclock.com)
+* [33ma88c5ed[m Remove redirect from vercel.json and update robots.txt for non-www sitemap
+* [33m18ca645[m Add debug step to production-lighthouse.yml
+* [33m6d48bcb[m fix: remove problematic redirect causing infinite loop
+* [33m734a23d[m fix: remove Replay integration from sentry.client.config.ts to avoid conflicts with Next.js Sentry plugin
+* [33m24c6b6e[m fix: move www redirect from vercel.json to next.config.ts to prevent redirect loop
+* [33mcd6a2f7[m fix: remove problematic language redirect causing redirect loop
+* [33m9d6504e[m fix: improve color contrast for navigation links
+* [33mb147eaa[m Trigger rebuild for Vercel
+* [33m823cebc[m[33m ([m[1;31morigin/feature/perf-ci[m[33m, [m[1;32mfeature/perf-ci[m[33m)[m Fix SEO canonical issues and domain consistency
+* [33m8014e0f[m Add production Lighthouse CI workflow
+* [33m905199b[m Fix lighthouse CI deployment verification
+* [33m0dde263[m Fix: extended deploy wait in Lighthouse check
+* [33mee103c9[m ci: remove incorrect scope from Vercel action
+* [33mb00474b[m fix: remove unsupported tracePropagationTargets from Sentry config
+* [33m9a68393[m feat: Add automated Lighthouse CI with performance targets
+* [33ma71d7ad[m feat: Add automated Lighthouse CI with performance targets
+* [33m81ef48f[m Your commit message here
+* [33m6345511[m Implement comprehensive JSON-LD structured data for rich results
+* [33m5591070[m Complete canonical and hreflang implementation for international SEO
+* [33mcfdbb4d[m Fix social metadata: Twitter images object, proper article type, ISO dates
+* [33m584a652[m Add comprehensive Open Graph and Twitter Card social metadata
+* [33m7ecaafe[m Add SEO-optimized meta descriptions with keyword focus
+* [33m226447f[m Add SEO-optimized title tags with structured template
+* [33m36d0653[m Add correct Google Search Console HTML verification file
+* [33m1efd7f9[m Add Google Search Console verification meta tag - Added Google site verification meta tag to layout.tsx - Uses Next.js metadata API for clean implementation - Verification content: JX76zFCjhtttG2yEJ7AyLaHu-nLIN5oRB_KSSPQQlxc
+* [33mb218205[m Redesign logo with centered layout and better sizing - Created new custom SVG logo with green clock/timer design - Implemented responsive logo sizing (w-32 to w-56 across breakpoints) - Redesigned header layout with centered logo and title - Enhanced spacing and visual hierarchy - Updated blog layout to use new logo - Added smooth hover animations and transitions
+* [33m5a0c192[m Add logo to header with smooth transitions – fixed logo display issue by using standard img tag
+* [33m138bdfc[m Add comprehensive SEO metadata and dynamic sitemap for blog
+* [33maf43baf[m Add blog section with 5 posts supporting both TypeScript and Markdown formats
+* [33m9ce211a[m Fix: Remove conflicting pages router to resolve build error
+* [33mc9f7bb5[m Initial commit
+* [33m9d1c527[m feat: implement live countdown timer with real-time updates
+* [33m3103c98[m feat: implement controlled inputs and fasting calculation logic
+* [33m70187a9[m refactor: reorder homepage sections (TimerForm, Resources, Intro, Benefits, FAQ)
+* [33m6727b77[m Apply new design with dark theme and updated content for all components
+* [33m4955cea[m Fix build: Remove conflicting pages/index.tsx, add missing dependencies and UI components
+* [33mf7bb2d0[m chore: update homepage, BenefitList and FAQ components
+* [33m091052b[m Clean up app/page.tsx, remove all duplicates, use new HomePage layout
+* [33mf8fcca4[m Refactor homepage and components: modular layout, FAQ accordion, benefit icons
+* [33mcf6ada8[m Restore homepage layout: intro, timer/form, resources, benefits, FAQ in correct order
+* [33medcd348[m Move content.en.ts to standard location, fix imports, add 'use client' for Next.js compatibility
+* [33mb47dc44[m Fix all TypeScript errors, clean up content type usage, and update imports
+* [33m5ac9aa5[m feat: add side and center AdSense blocks to page layout
+* [33md7e5f32[m Parandatud JSX, AdSense reklaamid Reactile sobivas vormis
+* [33m3fb35aa[m Kolme veeruga grid, reklaamialad alati nähtavad ja mobiilisõbralikud
+* [33m649d5f6[m fix: remove unused Image import, declare window.adsbygoogle, fix AdSense TS errors
+* [33m539e0c4[m Try Google verification file as HTML with plain text in body
+* [33m4757cc4[m Restore google site verification file to plain text
+* [33mf49e87b[m Fix google site verification file to valid HTML
+* [33mf5caeff[m fix AdSense type error and add verification file
+* [33m2c158ac[m add google verification file
+* [33ma385fff[m Fix logo with professional text-based FastingClock header
+* [33med44f17[m Force deployment - ensure logo appears
+* [33m7e8da10[m Replace emoji header with professional FastingClock logo
+* [33me0bf5ee[m Add Google AdSense script to Head section for complete integration
+* [33m2809cdf[m Update AdSense integration with real slot ID and improved useEffect
+* [33m9ba3e84[m Lisatud ads.txt AdSense jaoks
+* [33m196c09e[m final: fixed JSX + AdSense + toLocaleTimeString safety
+* [33m129b1ee[m fix: replace ts-ignore with ts-expect-error for AdSense
+* [33m1c6d6e5[m fix: permanent ESLint solution with descriptive @ts-expect-error comment
+* [33m275502f[m Fix ESLint: clean @ts-expect-error comment without extra text
+* [33m1448f41[m Trigger deployment with latest ESLint fixes
+* [33m92b1ded[m Fix ESLint error: replace @ts-ignore with @ts-expect-error
+* [33md61d766[m Update AdSense publisher ID to production value
+* [33mb4b4f51[m Add Google AdSense integration with layout script and ad block
+* [33mefdabd1[m Add affiliate buttons section with styling
+* [33mdc693d4[m Add Vercel configuration for deployment
+* [33m2ec49d4[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m Add SEO metadata and Head component to FastingTimer page
+* [33mc2228bf[m Initial commit from Create Next App

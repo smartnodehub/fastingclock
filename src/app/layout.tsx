@@ -108,3 +108,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+// Last updated: 2025-08-08 - Trigger new build
