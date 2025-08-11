@@ -24,13 +24,6 @@ export const metadata = {
   description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
   alternates: {
     canonical: "https://fastingclock.com",
-    languages: {
-      "en": "https://fastingclock.com/en",
-      "es": "https://fastingclock.com/es",
-      "de": "https://fastingclock.com/de",
-      "fi": "https://fastingclock.com/fi",
-      "x-default": "https://fastingclock.com",
-    },
   },
   openGraph: {
     title: "Free Fasting Timer & Clock | FastingClock.com",
@@ -75,8 +68,8 @@ export default function HomePage() {
         <Header />
         <TimerForm />
         <ResourceLinks />
-        {/* Call-to-Action Section */}
-        <section className="py-8 px-4 bg-blue-900 text-center">
+        {/* Call-to-Action Section (peidetud, kuni blogi on avalik) */}
+        {/* <section className="py-8 px-4 bg-blue-900 text-center">
           <h2 className="text-2xl font-bold mb-4">Master Intermittent Fasting with Expert Guidance</h2>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
             Explore our comprehensive collection of <Link href="/blog" className="text-yellow-400 hover:text-yellow-300 underline">intermittent fasting guides</Link> and expert tips. 
@@ -89,7 +82,7 @@ export default function HomePage() {
           >
             Explore Fasting Tips & Guides
           </Link>
-        </section>
+        </section> */}
 
         {/* Mobile Ad below hero/intro */}
         <MobileResponsiveAd slotId="YOUR_MOBILE_SLOT_ID" enabled={consent} className="mt-4" />
