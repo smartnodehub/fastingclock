@@ -1,26 +1,18 @@
-// File: src/app/page.tsx
 "use client";
 
-import { useState, Suspense, lazy } from "react";
-import Header        from "@/components/Header";
+// File: src/app/page.tsx
+
+import { Suspense, lazy } from "react";
 import TimerForm     from "@/components/TimerForm";
 import BenefitList   from "@/components/BenefitList";
 import FAQ            from "@/components/FAQ";
 import MobileResponsiveAd from '@/components/ads/MobileResponsiveAd';
 import { content }   from "@/content/content.en";
 import { 
-  generateBreadcrumbSchema, 
-  generateWebsiteSchema, 
-  generateOrganizationSchema,
   generateFAQSchema 
 } from "@/lib/structured-data";
 
 // Lazy load below-the-fold components
-const IntroSection  = lazy(() => import("@/components/IntroSection"));
-const ResourceLinks = lazy(() => import("@/components/ResourceLinks"));
-const StructuredData = lazy(() => import("@/components/StructuredData"));
-
-// AdSense integration
 const AdSense = () => (
   <section className="max-w-4xl mx-auto px-4 py-8">
     <MobileResponsiveAd slotId="3748465240" />
@@ -42,44 +34,6 @@ const AdSense = () => (
   </section>
 );
 
-export const metadata = {
-  title:       "Free Fasting Timer & Clock | FastingClock.com",
-  description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
-  alternates: {
-    canonical: "https://fastingclock.com",
-  },
-  openGraph: {
-    title: "Free Fasting Timer & Clock | FastingClock.com",
-    description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
-    url: "https://fastingclock.com",
-    type: "website",
-    images: [
-      {
-        url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
-        width: 1200,
-        height: 240,
-        alt: "Free Fasting Timer & Clock - FastingClock.com",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Fasting Timer & Clock | FastingClock.com",
-    description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
-    images: {
-      url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
-      alt: "Free Fasting Timer & Clock - FastingClock.com",
-    },
-  },
-};
-
-// Generate structured data for homepage
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: "Home", url: "https://fastingclock.com" }
-]);
-
-const websiteSchema = generateWebsiteSchema();
-const organizationSchema = generateOrganizationSchema();
 const faqSchema = generateFAQSchema(content.faqItems);
 
 const benefits = [
@@ -97,8 +51,6 @@ const faqs = [
 ];
 
 export default function HomePage() {
-  const [fastEnd, setFastEnd] = useState<string | null>(null);
-
   return (
     <main className="min-h-screen bg-blue-900 text-white">
       {/* Hero Section */}

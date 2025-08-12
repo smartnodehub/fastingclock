@@ -2,10 +2,8 @@ import React, { useState } from "react";
 
 export default function CookieConsentBanner() {
   const [showBanner, setShowBanner] = useState(true);
-  const [consentGiven, setConsentGiven] = useState(false);
 
   const handleAccept = () => {
-    setConsentGiven(true);
     setShowBanner(false);
     // Store consent in localStorage or cookies
     localStorage.setItem("cookieConsent", "true");
