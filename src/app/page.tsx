@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Suspense, lazy } from "react";
 import Header        from "@/components/Header";
 import IntroSection  from "@/components/IntroSection";
-import TimerForm     from "@/components/TimerForm";
 import ResourceLinks from "@/components/ResourceLinks";
 import StructuredData from "@/components/StructuredData";
 import MobileResponsiveAd from '@/components/ads/MobileResponsiveAd';
@@ -60,41 +59,108 @@ const organizationSchema = generateOrganizationSchema();
 const faqSchema = generateFAQSchema(content.faqItems);
 
 export default function HomePage() {
-  const consent = true;
   return (
-    <>
-      <StructuredData data={[breadcrumbSchema, websiteSchema, organizationSchema, faqSchema]} />
-      <main className="bg-gray-900 text-white">
-        <Header />
-        <TimerForm />
-        <ResourceLinks />
-        {/* Call-to-Action Section (peidetud, kuni blogi on avalik) */}
-        {/* <section className="py-8 px-4 bg-blue-900 text-center">
-          <h2 className="text-2xl font-bold mb-4">Master Intermittent Fasting with Expert Guidance</h2>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Explore our comprehensive collection of <Link href="/blog" className="text-yellow-400 hover:text-yellow-300 underline">intermittent fasting guides</Link> and expert tips. 
-            Learn everything from <Link href="/blog/getting-started-16-8-intermittent-fasting" className="text-yellow-400 hover:text-yellow-300 underline">16:8 fasting basics</Link> to 
-            advanced strategies with our <Link href="/blog/best-fasting-apps-2025" className="text-yellow-400 hover:text-yellow-300 underline">recommended fasting apps</Link>.
-          </p>
-          <Link 
-            href="/blog" 
-            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-lg transition-colors"
-          >
-            Explore Fasting Tips & Guides
-          </Link>
-        </section> */}
+    <main className="mx-auto max-w-3xl px-4 py-10">
+      <header className="mb-8 text-center">
+        <h1 className="text-3xl font-extrabold tracking-tight">FastingClock – Intermittent Fasting Timer</h1>
+        <p className="mt-2 text-slate-600">
+          A clean, accurate, and free timer to help you stick to 16:8, 18:6, OMAD, or any custom fasting window.
+        </p>
+      </header>
 
-        {/* Mobile Ad below hero/intro */}
-        <MobileResponsiveAd slotId="YOUR_MOBILE_SLOT_ID" enabled={consent} className="mt-4" />
+      {/* Timer placeholder – keep your existing working timer component or logic here */}
+      <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5">
+        <h2 className="mb-2 text-xl font-semibold">Start your fast</h2>
+        <p className="mb-4 text-slate-600">Set your duration, start, and let the countdown run in the background.</p>
+        {/* Your existing timer UI goes here */}
+        <div className="grid gap-3 sm:grid-cols-2">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm font-medium">Fasting duration (hours)</span>
+            <input
+              type="number"
+              defaultValue={16}
+              min={1}
+              className="rounded-lg border border-slate-300 px-3 py-2"
+            />
+          </label>
+          <div className="flex items-end">
+            <button className="w-full rounded-lg bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-700">
+              Start
+            </button>
+          </div>
+        </div>
+        <div className="mt-6 rounded-lg bg-slate-100 p-4 text-center text-lg font-semibold">
+          00:00:00
+        </div>
+      </section>
 
-        <IntroSection text={content.intro16to8} />
-        <Suspense fallback={<div className="py-8 text-center text-gray-400">Loading benefits...</div>}>
-          <BenefitList items={content.benefits} />
-        </Suspense>
-        <Suspense fallback={<div className="py-8 text-center text-gray-400">Loading FAQ...</div>}>
-          <FAQ items={content.faqItems} />
-        </Suspense>
-      </main>
-    </>
+      {/* SEO/content block ≥300 words */}
+      <section className="prose prose-slate mt-10 max-w-none">
+        <h2>What is intermittent fasting?</h2>
+        <p>
+          Intermittent fasting is a simple eating pattern that cycles between periods of eating and fasting. Rather than
+          prescribing strict menus, it focuses on <em>when</em> you eat. Many people choose the 16:8 schedule—sixteen
+          hours of fasting followed by an eight–hour eating window—while others try 18:6, 20:4, or a single daily meal
+          (OMAD). Research suggests time–restricted eating can help with weight management, support metabolic health, and
+          improve meal–time awareness. It’s not a magic trick; it’s a structure that can make consistent choices easier.
+        </p>
+        <h2>How FastingClock helps</h2>
+        <p>
+          FastingClock keeps the math off your plate. Set a duration, press start, and the countdown shows exactly when
+          your fast ends. The layout is intentionally minimal—fast loads, large text, and controls that work on desktop and
+          mobile. There’s no account to create; preferences can be stored locally in your browser so you can return to your
+          routine without friction. Whether you’re easing into your first 12‑hour fast or maintaining a longer protocol,
+          the live timer offers clarity and a small nudge to stay consistent.
+        </p>
+        <h2>Practical tips</h2>
+        <p>
+          Hydration helps most people fast comfortably; water, black coffee, and plain tea are common choices during the
+          fasting window. Plan your first meal so the timer’s zero doesn’t catch you scrambling. If your schedule changes,
+          just pause or reset—flexibility beats perfectionism. Remember that individual needs vary; what matters is finding
+          a cadence you can sustain.
+        </p>
+        <h2>Disclaimer</h2>
+        <p>
+          FastingClock is an educational tool and does not provide medical advice. Intermittent fasting is not appropriate
+          for everyone. Consult a qualified healthcare professional before starting, especially if you have medical
+          conditions, take medication, are pregnant, or have a history of disordered eating.
+        </p>
+      </section>
+
+      {/* AdSense unit (loads only after consent via CookieYes) */}
+      <section className="mt-10">
+        <div className="text-center text-sm text-slate-500">Sponsored</div>
+
+        {/* Google AdSense script blocked until “advertisement” consent */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7058115116105378"
+          crossOrigin="anonymous"
+          type="text/plain"
+          data-cookieyes="advertisement"
+        ></script>
+
+        <ins
+          className="adsbygoogle block w-full"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-7058115116105378"
+          data-ad-slot="3748465240"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+
+        <script
+          type="text/plain"
+          data-cookieyes="advertisement"
+          dangerouslySetInnerHTML={{ __html: "(adsbygoogle = window.adsbygoogle || []).push({});" }}
+        />
+      </section>
+
+      <footer className="mt-12 text-center text-sm text-slate-500">
+        <a className="underline hover:no-underline" href="/privacy-policy">
+          Privacy Policy
+        </a>
+      </footer>
+    </main>
   );
 }

@@ -1,13 +1,6 @@
-
 import type { MetadataRoute } from 'next';
-import { getAllPosts } from '@/lib/blog';
 
 const BASE_URL = 'https://fastingclock.com';
-
-type BlogPost = {
-  slug: string;
-  date: string | Date;
-};
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
