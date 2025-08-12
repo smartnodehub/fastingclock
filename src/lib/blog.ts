@@ -88,3 +88,5 @@ export function getPostBySlug(slug: string): BlogPost | null {
   const allPosts = getAllPosts();
   return allPosts.find(post => post.slug === slug) || null;
 }
+
+console.log("All Posts:", getAllPosts());
