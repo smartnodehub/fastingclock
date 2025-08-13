@@ -17,11 +17,6 @@ Sentry.init({
   debug: false, // Disable debug to avoid console warnings
   
   integrations: [
-    // Removed Replay integration to avoid conflicts
-    // Sentry.replayIntegration({
-    //   maskAllText: false,
-    //   blockAllMedia: false,
-    // }),
     Sentry.browserTracingIntegration({
       // Tracing configuration removed - not supported in this SDK version
     }),
