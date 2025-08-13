@@ -44,7 +44,7 @@ export default function CookieConsentBanner({ onConsentChange }: CookieConsentBa
           <p>
             We use cookies to enhance your experience and show personalized ads. 
             <br className="hidden sm:block" />
-            By clicking "Accept All", you consent to our use of cookies.
+            By clicking &quot;Accept All&quot;, you consent to our use of cookies.
           </p>
         </div>
         <div className="flex gap-3">
