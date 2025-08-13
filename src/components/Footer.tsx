@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FC } from "react";
+import CookieSettingsLink from "@/components/CookieSettingsLink";
 
 const Footer: FC = () => {
   return (
@@ -97,6 +98,7 @@ const Footer: FC = () => {
               <Link href="/contact" className="text-gray-200 hover:text-yellow-400 transition-colors">
                 Contact
               </Link>
+              <CookieSettingsLink />
               <Link href="/sitemap.xml" className="text-gray-200 hover:text-yellow-400 transition-colors">
                 Sitemap
               </Link>

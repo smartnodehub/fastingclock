@@ -1,3 +1,5 @@
+'use client';
+
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
@@ -14,7 +16,7 @@ Sentry.init({
   replaysSessionSampleRate: 0.1,
   
   // You can remove this option if you're not planning to use the Sentry webpack plugin for uploading source maps.
-  debug: process.env.NODE_ENV === 'development',
+  debug: false, // Disable debug to avoid console warnings
   
   integrations: [
     Sentry.replayIntegration({
@@ -53,4 +55,4 @@ Sentry.init({
 });
 
 // Export the router transition hook for navigation instrumentation
-export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;
+export const onRouterTransitionStart = Sentry.captureRouterTransitionStart; 

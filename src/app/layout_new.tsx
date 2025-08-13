@@ -1,8 +1,6 @@
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import WebVitalsReporter from "@/components/WebVitalsReporter";
@@ -13,19 +11,29 @@ import AdSenseScript from '@/components/ads/AdSenseScript';
 import SidebarAds from '@/components/ads/SidebarAds';
 import SimpleCookieProvider from '@/components/SimpleCookieProvider';
 import "./globals.css";
-import Script from "next/script";
 
-export const metadata = {
-  title: "Free Fasting Timer & Clock | FastingClock.com",
-  description:
-    "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Free Fasting Timer & Tracker | FastingClock.com",
+  description: "Easily track your fasting with our free fasting timer and sleek fasting clock. Stay on schedule, improve health, and never miss a window—start tracking today!",
+  verification: {
+    google: "JX76zFCjhtttG2yEJ7AyLaHu-nLIN5oRB_KSSPQQlxc",
+  },
   alternates: {
     canonical: "https://fastingclock.com",
   },
   openGraph: {
-    title: "Free Fasting Timer & Clock | FastingClock.com",
-    description:
-      "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
+    title: "Free Fasting Timer & Tracker | FastingClock.com",
+    description: "Easily track your fasting with our free fasting timer and sleek fasting clock. Stay on schedule, improve health, and never miss a window—start tracking today!",
     url: "https://fastingclock.com",
     type: "website",
     images: [
@@ -33,20 +41,25 @@ export const metadata = {
         url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
         width: 1200,
         height: 240,
-        alt: "Free Fasting Timer & Clock - FastingClock.com",
+        alt: "Free Fasting Timer & Tracker - FastingClock.com",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Fasting Timer & Clock | FastingClock.com",
-    description:
-      "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
+    title: "Free Fasting Timer & Tracker | FastingClock.com",
+    description: "Easily track your fasting with our free fasting timer and sleek fasting clock. Stay on schedule, improve health, and never miss a window—start tracking today!",
     images: {
       url: "https://fastingclock.com/fastingclock-logo-adsense-5to1.png",
-      alt: "Free Fasting Timer & Clock - FastingClock.com",
+      alt: "Free Fasting Timer & Tracker - FastingClock.com",
     },
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -70,3 +83,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
+// Last updated: 2025-08-08 - Trigger new build
