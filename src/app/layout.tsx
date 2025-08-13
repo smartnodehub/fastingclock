@@ -55,11 +55,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script
+        <Script
           id="cookieyes"
-          type="text/javascript"
           src="https://cdn-cookieyes.com/client_data/e0796ebc7728c47cd8f63315/script.js"
-        ></script>
+          strategy="afterInteractive"
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SimpleCookieProvider>
