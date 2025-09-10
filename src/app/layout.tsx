@@ -11,7 +11,7 @@ import ErrorReporter from "@/components/ErrorReporter";
 import Image from "next/image";
 import AdSenseScript from '@/components/ads/AdSenseScript';
 import SidebarAds from '@/components/ads/SidebarAds';
-import SimpleCookieProvider from '@/components/SimpleCookieProvider';
+import { CookieProvider } from '@/components/CookieProvider';
 import "./globals.css";
 import Script from "next/script";
 
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SimpleCookieProvider>
+  <CookieProvider>
           <ErrorBoundary>
             <GoogleAnalytics />
             <WebVitalsReporter />
@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
             <Footer />
           </ErrorBoundary>
-        </SimpleCookieProvider>
+  </CookieProvider>
       </body>
     </html>
   );

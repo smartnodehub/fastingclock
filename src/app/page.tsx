@@ -39,7 +39,6 @@ export const metadata = {
 
 import StructuredData from "@/components/StructuredData";
 import HomeClient from "@/components/HomeClient";
-import SimpleCookieProvider from "@/components/SimpleCookieProvider";
 import { content } from "@/content/content.en";
 import { generateFAQSchema, generateBreadcrumbSchema, generateWebsiteSchema, generateOrganizationSchema } from "@/lib/structured-data";
 
@@ -51,13 +50,12 @@ const websiteSchema = generateWebsiteSchema();
 const organizationSchema = generateOrganizationSchema();
 const faqSchema = generateFAQSchema(content.faqItems);
 
+
 export default function HomePage() {
   return (
     <>
       <StructuredData data={[breadcrumbSchema, websiteSchema, organizationSchema, faqSchema]} />
-      <SimpleCookieProvider>
-        <HomeClient />
-      </SimpleCookieProvider>
+      <HomeClient />
     </>
   );
 }
