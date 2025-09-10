@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /blog?q=
 
 Sitemap: https://fastingclock.com/sitemap.xml
