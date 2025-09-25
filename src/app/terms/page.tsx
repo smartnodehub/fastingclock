@@ -3,27 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service – Fasting Clock",
   description:
-    "Read the Terms of Service for Fasting Clock. Usage rules, disclaimers, ads & affiliates, limitation of liability, and changes to terms.",
+    "Terms of Service for Fasting Clock: permitted use, disclaimers, ads and affiliates, limitation of liability, and changes.",
   alternates: {
     canonical: "https://fastingclock.com/terms",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     url: "https://fastingclock.com/terms",
     siteName: "Fasting Clock",
     title: "Terms of Service – Fasting Clock",
     description:
-      "Read the Terms of Service for Fasting Clock.",
+      "Terms of Service for Fasting Clock: permitted use, disclaimers, ads and affiliates, limitation of liability, and changes.",
   },
   twitter: {
     card: "summary",
     title: "Terms of Service – Fasting Clock",
     description:
-      "Read the Terms of Service for Fasting Clock.",
+      "Terms of Service for Fasting Clock.",
   },
 };
 

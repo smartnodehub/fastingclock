@@ -5,32 +5,72 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy – Fasting Clock",
   description:
-    "Learn how Fasting Clock collects, uses, and protects your data. Read our privacy policy, cookies, third-party services, and your rights.",
+    "Fasting Clock privacy policy: data we collect, cookies, Google AdSense, analytics, your choices and rights.",
   alternates: {
     canonical: "https://fastingclock.com/privacy",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     url: "https://fastingclock.com/privacy",
     siteName: "Fasting Clock",
     title: "Privacy Policy – Fasting Clock",
     description:
-      "Learn how Fasting Clock collects, uses, and protects your data.",
+      "Fasting Clock privacy policy: data we collect, cookies, Google AdSense, analytics, your choices and rights.",
   },
   twitter: {
     card: "summary",
     title: "Privacy Policy – Fasting Clock",
     description:
-      "Learn how Fasting Clock collects, uses, and protects your data.",
+      "Fasting Clock privacy policy: data we collect, cookies, Google AdSense, analytics, your choices and rights.",
   },
 };
 
 export default function PrivacyPage() {
-  const ldJson = {
+  const faq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Do you sell my data to third parties?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "No. We do not sell or share your personal information with third parties. We use analytics and advertising services according to their own privacy policies.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I use the fasting timer without accepting cookies?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Basic use of the website does not require advertising cookies. However, certain features such as analytics and personalized ads may be limited until consent is given via the cookie banner.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How can I change or withdraw my cookie choices later?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "You can change or withdraw your consent at any time by opening the cookie settings from the CookieYes icon or banner available on the site.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which third-party services do you use?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "We use Google AdSense for ads and Google Analytics for traffic measurement. We may also use affiliate platforms. Each provider processes data under its own privacy policy.",
+        },
+      },
+    ],
+  };
+
+  const webPage = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://fastingclock.com/privacy#webpage",
@@ -55,7 +95,7 @@ export default function PrivacyPage() {
       <script
         type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml:
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@graph": [webPage, faq] }) }}
       />
       <h1>Privacy Policy</h1>
       <p><strong>Effective Date:</strong> September 25, 2025</p>
@@ -79,16 +119,17 @@ export default function PrivacyPage() {
         <li>To display relevant advertisements through Google AdSense and affiliate partners.</li>
       </ul>
 
-      <h2>3. Cookies</h2>
+      <h2>3. Cookies and Consent</h2>
       <p>
-        Our site uses cookies to personalize content, analyze traffic, and serve ads. You can manage or disable cookies
-        through your browser settings.
+        Our site uses cookies to personalize content, analyze traffic, and serve ads. We use <strong>CookieYes Consent
+        Mode v2</strong> to manage consent on this site. You can change or withdraw your consent at any time by opening
+        the cookie settings from the cookie icon or banner.
       </p>
 
       <h2>4. Third-Party Services</h2>
       <p>
-        We use Google AdSense, Analytics, and affiliate platforms. These services may use cookies and collect usage data
-        according to their own privacy policies.
+        We use Google AdSense for advertising and Google Analytics for measurement. These services may use cookies and
+        collect usage data according to their own privacy policies.
       </p>
 
       <h2>5. Your Rights</h2>
@@ -107,6 +148,27 @@ export default function PrivacyPage() {
         For questions about this Privacy Policy, please contact us at{" "}
         <a href="https://fastingclock.com/contact">https://fastingclock.com/contact</a>.
       </p>
+
+      <h2>FAQ</h2>
+      <details>
+        <summary>Do you sell my data to third parties?</summary>
+        <p>No. We do not sell or share your personal information with third parties.</p>
+      </details>
+      <details>
+        <summary>Can I use the fasting timer without accepting cookies?</summary>
+        <p>
+          Basic use of the website does not require advertising cookies. However, certain features (analytics,
+          personalized ads) may be limited until you give consent in the cookie banner.
+        </p>
+      </details>
+      <details>
+        <summary>How can I change or withdraw my cookie choices later?</summary>
+        <p>You can update your choices anytime from the CookieYes icon or banner available on the site.</p>
+      </details>
+      <details>
+        <summary>Which third-party services do you use?</summary>
+        <p>Google AdSense for ads and Google Analytics for measurement. We may also use affiliate networks.</p>
+      </details>
     </main>
   );
 }
