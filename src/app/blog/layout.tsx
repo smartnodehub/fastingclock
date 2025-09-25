@@ -7,10 +7,6 @@ export const metadata = {
   alternates: {
     canonical: "https://fastingclock.com/blog",
     languages: {
-      "en": "https://fastingclock.com/en/blog",
-      "es": "https://fastingclock.com/es/blog",
-      "de": "https://fastingclock.com/de/blog",
-      "fi": "https://fastingclock.com/fi/blog",
       "x-default": "https://fastingclock.com/blog",
     },
   },

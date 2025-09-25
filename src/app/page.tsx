@@ -1,14 +1,9 @@
-
 export const metadata = {
   title:       "Free Fasting Timer & Clock | FastingClock.com",
   description: "Track your intermittent fasting with our free fasting timer and intuitive fasting clock. Stay motivated, reach your goals, and start your journey today!",
   alternates: {
     canonical: "https://fastingclock.com",
     languages: {
-      "en": "https://fastingclock.com/en",
-      "es": "https://fastingclock.com/es",
-      "de": "https://fastingclock.com/de",
-      "fi": "https://fastingclock.com/fi",
       "x-default": "https://fastingclock.com",
     },
   },
