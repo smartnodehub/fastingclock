@@ -11,5 +11,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
   ];
 
-  return staticUrls;
+  const blogUrls: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/blog/16-8-fasting-schedule`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${BASE_URL}/blog/best-fasting-apps-2025`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${BASE_URL}/blog/breaking-fast-tips`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${BASE_URL}/blog/fasting-mistakes`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+  ];
+
+  return [...staticUrls, ...blogUrls];
 }
