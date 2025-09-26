@@ -120,7 +120,7 @@ export function generateOrganizationSchema() {
       "height": 240
     },
     "sameAs": [
-      "https://github.com/smartnodehub/fastingtimer"
+      "https://github.com/smartnodehub/fastingclock"
     ]
   };
 }
