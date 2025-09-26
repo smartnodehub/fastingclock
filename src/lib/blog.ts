@@ -91,4 +91,31 @@ export function getPostBySlug(slug: string): BlogPost | null {
   return allPosts.find(post => post.slug === slug) || null;
 }
 
+export const posts = [
+  {
+    slug: "16-8-fasting-schedule",
+    title: "16/8 Intermittent Fasting Schedule for Beginners",
+    date: "2025-09-26",
+    excerpt: "Learn how to start 16/8 intermittent fasting with an easy daily schedule, meal tips, and fasting window guide.",
+  },
+  {
+    slug: "best-foods-breaking-fast",
+    title: "Best Foods to Eat When Breaking a Fast (2025 Guide)",
+    date: "2025-09-26",
+    excerpt: "Discover the best foods to safely break your fast in 2025. Support digestion, energy, and health after intermittent fasting.",
+  },
+  {
+    slug: "fasting-mistakes",
+    title: "5 Common Intermittent Fasting Mistakes to Avoid",
+    date: "2025-09-26",
+    excerpt: "Avoid these 5 intermittent fasting mistakes that can block your progress. Learn how to fast smarter and healthier.",
+  },
+  {
+    slug: "fasting-and-coffee",
+    title: "Intermittent Fasting and Coffee: What’s Allowed?",
+    date: "2025-09-26",
+    excerpt: "Can you drink coffee during intermittent fasting? Learn what’s allowed, what breaks a fast, and how to enjoy coffee while fasting.",
+  },
+];
+
 console.log("All Posts:", getAllPosts());
