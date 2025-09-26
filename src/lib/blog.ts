@@ -7,6 +7,7 @@ import { marked } from 'marked';
 import { post as post1 } from '@/content/posts/2025-07-29-getting-started-16-8';
 import { post as post2 } from '@/content/posts/2025-07-28-breaking-fast-tips';
 import { post as post3 } from '@/content/posts/2025-07-27-fasting-mistakes';
+import { post as post4 } from '@/app/blog/16-8-fasting-schedule/page';
 
 export interface BlogPost {
   title: string;
@@ -25,6 +26,7 @@ const tsPosts: BlogPost[] = [
   { ...post1, excerpt: post1.excerpt },
   { ...post2, excerpt: post2.excerpt },
   { ...post3, excerpt: post3.excerpt },
+  { ...post4, excerpt: post4.excerpt },
 ];
 
 // Get posts from Markdown files
