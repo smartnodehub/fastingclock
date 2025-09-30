@@ -21,14 +21,6 @@ export type BlogPost = {
   body?: string;
 };
 
-// Collect TypeScript posts
-const tsPosts: BlogPost[] = [
-  { ...post1, excerpt: post1.excerpt },
-  { ...post2, excerpt: post2.excerpt },
-  { ...post3, excerpt: post3.excerpt },
-  { ...post4, excerpt: post4.excerpt },
-];
-
 // Get posts from Markdown files
 function getMarkdownPosts(): BlogPost[] {
   const blogDirectory = path.join(process.cwd(), 'src/content/blog');
