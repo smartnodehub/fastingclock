@@ -14,7 +14,11 @@ export type BlogPost = {
   title: string;
   date: string;
   excerpt: string;
-  image: string; // lisatud image väli
+  image: string;
+  author?: string;
+  readTime?: string;
+  description?: string;
+  body?: string;
 };
 
 // Collect TypeScript posts

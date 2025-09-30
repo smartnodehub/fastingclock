@@ -39,13 +39,13 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 
   return {
     title: `${post.title} | FastingClock.com`,
-    description: post.excerpt || post.description,
+    description: post.excerpt,
     alternates: {
       canonical: postUrl,
     },
     openGraph: {
       title: `${post.title} | FastingClock.com`,
-      description: post.excerpt || post.description,
+      description: post.excerpt,
       url: postUrl,
       type: "article",
       publishedTime: publishedTime,
@@ -138,7 +138,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Post Content */}
       <div 
         className="prose prose-invert prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.body }}
+        dangerouslySetInnerHTML={{ __html: post.body || post.excerpt }}
       />
 
       {/* Call-to-Action Section */}
