@@ -69,12 +69,9 @@ function calculateReadTime(content: string): string {
   return `${readTime} min read`;
 }
 
-// Get all posts from both sources
+// Get all posts from the static posts array
 export function getAllPosts(): BlogPost[] {
-  const markdownPosts = getMarkdownPosts();
-  
-  return [...tsPosts, ...markdownPosts]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 // Get a single post by slug
